@@ -6,34 +6,36 @@
   <meta name="apple-mobile-web-app-capable" content="yes"/>
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
   <meta name="apple-mobile-web-app-title" content="EngStart"/>
-  <meta name="theme-color" content="#0EA5E9"/>
+  <meta name="theme-color" content="#0369A1"/>
   <link rel="manifest" href="manifest.json"/>
   <link rel="apple-touch-icon" href="icon-192.png"/>
-  <title>EngStart</title>
+  <title>EngStart — Cambridge English</title>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
-      --sky:#0EA5E9;--sky-bg:#F0F9FF;--sky-bd:#BAE6FD;--sky-tx:#0C4A6E;--sky-md:#0284C7;
-      --sun:#F59E0B;--sun-bg:#FFFBEB;--sun-bd:#FDE68A;--sun-tx:#78350F;--sun-md:#D97706;
-      --leaf:#10B981;--leaf-bg:#ECFDF5;--leaf-bd:#A7F3D0;--leaf-tx:#064E3B;--leaf-md:#059669;
-      --rose:#F43F5E;--rose-bg:#FFF1F2;--rose-bd:#FECDD3;--rose-tx:#881337;--rose-md:#E11D48;
-      --plum:#8B5CF6;--plum-bg:#F5F3FF;--plum-bd:#DDD6FE;--plum-tx:#4C1D95;--plum-md:#7C3AED;
-      --coral:#F97316;--coral-bg:#FFF7ED;--coral-bd:#FED7AA;--coral-tx:#7C2D12;--coral-md:#EA580C;
-      --bg:#fff;--bg2:#F8FAFC;--tx:#0F172A;--tx2:#64748B;--tx3:#94A3B8;
-      --bd:rgba(0,0,0,0.08);--bd2:rgba(0,0,0,0.14);
+      --sky:#0369A1;--sky-bg:#F0F9FF;--sky-bd:#BAE6FD;--sky-tx:#0C4A6E;--sky-md:#0284C7;
+      --gold:#D97706;--gold-bg:#FFFBEB;--gold-bd:#FDE68A;--gold-tx:#78350F;--gold-md:#B45309;
+      --green:#059669;--green-bg:#ECFDF5;--green-bd:#A7F3D0;--green-tx:#064E3B;--green-md:#047857;
+      --rose:#E11D48;--rose-bg:#FFF1F2;--rose-bd:#FECDD3;--rose-tx:#881337;--rose-md:#BE123C;
+      --plum:#7C3AED;--plum-bg:#F5F3FF;--plum-bd:#DDD6FE;--plum-tx:#4C1D95;--plum-md:#6D28D9;
+      --coral:#EA580C;--coral-bg:#FFF7ED;--coral-bd:#FED7AA;--coral-tx:#7C2D12;--coral-md:#C2410C;
+      --teal:#0F766E;--teal-bg:#F0FDFA;--teal-bd:#99F6E4;--teal-tx:#134E4A;--teal-md:#0D9488;
+      --bg:#fff;--bg2:#F8FAFC;--tx:#0F172A;--tx2:#475569;--tx3:#94A3B8;
+      --bd:rgba(0,0,0,0.08);--bd2:rgba(0,0,0,0.15);
       --safe-top:env(safe-area-inset-top);--safe-bot:env(safe-area-inset-bottom);
     }
     @media(prefers-color-scheme:dark){
       :root{
         --bg:#0F172A;--bg2:#1E293B;--tx:#F1F5F9;--tx2:#94A3B8;--tx3:#64748B;
-        --bd:rgba(255,255,255,0.08);--bd2:rgba(255,255,255,0.14);
+        --bd:rgba(255,255,255,0.08);--bd2:rgba(255,255,255,0.15);
         --sky-bg:#082F49;--sky-bd:#0C4A6E;--sky-tx:#BAE6FD;--sky-md:#38BDF8;
-        --sun-bg:#1C1400;--sun-bd:#78350F;--sun-tx:#FDE68A;--sun-md:#FBBF24;
-        --leaf-bg:#022C22;--leaf-bd:#064E3B;--leaf-tx:#A7F3D0;--leaf-md:#34D399;
+        --gold-bg:#1C1400;--gold-bd:#78350F;--gold-tx:#FDE68A;--gold-md:#FBBF24;
+        --green-bg:#022C22;--green-bd:#064E3B;--green-tx:#A7F3D0;--green-md:#34D399;
         --rose-bg:#2A0A10;--rose-bd:#881337;--rose-tx:#FECDD3;--rose-md:#FB7185;
         --plum-bg:#2E1065;--plum-bd:#4C1D95;--plum-tx:#DDD6FE;--plum-md:#A78BFA;
         --coral-bg:#2A1000;--coral-bd:#7C2D12;--coral-tx:#FED7AA;--coral-md:#FB923C;
+        --teal-bg:#042F2E;--teal-bd:#134E4A;--teal-tx:#99F6E4;--teal-md:#2DD4BF;
       }
     }
     html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif;background:var(--bg2);color:var(--tx);-webkit-tap-highlight-color:transparent;overflow-x:hidden}
@@ -43,55 +45,45 @@
     .screen.active{display:block;padding:18px 16px 52px;animation:fadeUp .28s ease}
     @keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
     .card{background:var(--bg);border-radius:16px;border:0.5px solid var(--bd);padding:16px;margin-bottom:12px}
-    .btn{width:100%;padding:16px;border-radius:14px;border:none;font-size:17px;font-weight:700;cursor:pointer;font-family:inherit;color:#fff;background:var(--sky);transition:opacity .15s,transform .1s}
+    .btn{width:100%;padding:15px;border-radius:13px;border:none;font-size:16px;font-weight:700;cursor:pointer;font-family:inherit;color:#fff;background:var(--sky);transition:opacity .15s,transform .1s}
     .btn:active{opacity:.8;transform:scale(.98)}
     .btn-soft{width:100%;padding:13px;border-radius:13px;border:0.5px solid var(--bd2);background:transparent;color:var(--tx2);font-size:14px;cursor:pointer;font-family:inherit;margin-top:10px}
     .back{background:none;border:none;color:var(--tx3);font-size:14px;cursor:pointer;padding:4px 0 14px;font-family:inherit;display:block}
-    .token-display{display:inline-flex;align-items:center;gap:6px;background:var(--sun-bg);border:1.5px solid var(--sun-bd);border-radius:20px;padding:6px 14px;font-size:15px;font-weight:700;color:var(--sun-tx)}
-    .progress-bar{height:10px;background:var(--bg2);border-radius:5px;overflow:hidden;margin:8px 0}
-    .progress-fill{height:100%;border-radius:5px;background:var(--sky);transition:width .4s ease}
-    .lesson-card{display:flex;align-items:center;gap:12px;padding:14px;border-radius:16px;border:2px solid var(--bd);background:var(--bg);margin-bottom:10px;cursor:pointer;transition:all .15s}
+    .token-display{display:inline-flex;align-items:center;gap:6px;background:var(--gold-bg);border:1.5px solid var(--gold-bd);border-radius:20px;padding:6px 14px;font-size:15px;font-weight:700;color:var(--gold-tx)}
+    .progress-bar{height:8px;background:var(--bg2);border-radius:4px;overflow:hidden;margin:8px 0}
+    .progress-fill{height:100%;border-radius:4px;background:var(--sky);transition:width .4s ease}
+    .lesson-card{display:flex;align-items:center;gap:12px;padding:14px;border-radius:14px;border:1.5px solid var(--bd);background:var(--bg);margin-bottom:10px;cursor:pointer;transition:all .15s}
     .lesson-card:hover{border-color:var(--sky-bd)}
-    .lesson-card.done{background:var(--leaf-bg);border-color:var(--leaf-bd)}
-    .big-emoji{font-size:80px;display:block;text-align:center;margin:10px 0;line-height:1;filter:drop-shadow(0 4px 8px rgba(0,0,0,.1))}
-    .word-big{font-size:36px;font-weight:800;color:var(--tx);text-align:center;letter-spacing:-.5px;margin:8px 0 4px}
-    .word-native{font-size:18px;color:var(--tx2);text-align:center;margin-bottom:14px}
-    .tap-card{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px 12px;border-radius:18px;border:2px solid var(--bd);background:var(--bg);cursor:pointer;transition:all .2s;min-height:110px}
+    .lesson-card.done{background:var(--green-bg);border-color:var(--green-bd)}
+    .lesson-card.locked{opacity:.5;cursor:not-allowed}
+    .tap-card{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 10px;border-radius:16px;border:2px solid var(--bd);background:var(--bg);cursor:pointer;transition:all .18s;min-height:105px}
     .tap-card:active{transform:scale(.95)}
-    .tap-card.correct{background:var(--leaf-bg);border-color:var(--leaf-bd)}
+    .tap-card.correct{background:var(--green-bg);border-color:var(--green-bd)}
     .tap-card.wrong{background:var(--rose-bg);border-color:var(--rose-bd)}
-    .tap-card.selected{border-color:var(--sky);background:var(--sky-bg)}
-    .tap-emoji{font-size:44px;margin-bottom:6px}
-    .tap-word{font-size:13px;font-weight:600;color:var(--tx2);text-align:center;line-height:1.3}
-    .level-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;border:1px solid}
+    .tab-bar{display:flex;gap:0;background:var(--bg2);border-radius:12px;padding:3px;margin-bottom:16px;border:0.5px solid var(--bd)}
+    .tab{flex:1;padding:8px 4px;border-radius:9px;border:none;background:transparent;font-size:12px;font-weight:500;color:var(--tx3);cursor:pointer;font-family:inherit;transition:all .2s}
+    .tab.active{background:var(--bg);color:var(--tx);box-shadow:0 1px 3px rgba(0,0,0,.08)}
     .share-btn{display:flex;align-items:center;gap:10px;width:100%;padding:13px 16px;border-radius:12px;border:1.5px solid var(--bd);background:var(--bg);cursor:pointer;font-family:inherit;font-size:14px;font-weight:600;color:var(--tx);margin-bottom:10px;transition:all .15s}
     .share-btn:hover{border-color:var(--sky-bd);background:var(--sky-bg)}
     .share-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
     .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
     .stat-card{background:var(--bg2);border-radius:12px;padding:12px;border:0.5px solid var(--bd);text-align:center}
-    .tab-bar{display:flex;gap:0;background:var(--bg2);border-radius:12px;padding:3px;margin-bottom:16px;border:0.5px solid var(--bd)}
-    .tab{flex:1;padding:9px 4px;border-radius:9px;border:none;background:transparent;font-size:12px;font-weight:500;color:var(--tx3);cursor:pointer;font-family:inherit;transition:all .2s}
-    .tab.active{background:var(--bg);color:var(--tx);box-shadow:0 1px 3px rgba(0,0,0,.08)}
-    .lang-btn{padding:10px 14px;border-radius:12px;border:2px solid var(--bd);background:var(--bg);font-size:18px;cursor:pointer;font-family:inherit;transition:all .15s;text-align:center;display:flex;flex-direction:column;gap:4px;align-items:center}
-    .lang-btn.selected{border-color:var(--sky);background:var(--sky-bg)}
-    .lang-name{font-size:11px;font-weight:600;color:var(--tx2)}
-    .grade-btn{padding:10px 6px;border-radius:10px;border:1.5px solid var(--bd);background:var(--bg);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;color:var(--tx2);text-align:center;transition:all .15s}
-    .grade-btn.selected{background:var(--sky-bg);border-color:var(--sky-bd);color:var(--sky-tx)}
-    .float{animation:float 3s ease-in-out infinite}
-    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-    .bounce{animation:bounce .4s cubic-bezier(.36,.07,.19,.97)}
-    @keyframes bounce{0%{transform:scale(1)}50%{transform:scale(1.2)}100%{transform:scale(1)}}
-    .cursor{opacity:.4;animation:blink .8s infinite}
-    @keyframes blink{0%,100%{opacity:.4}50%{opacity:0}}
-    .label-sm{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--tx3);margin-bottom:4px}
-    input,select,textarea{width:100%;padding:11px 13px;border-radius:10px;border:1px solid var(--bd2);background:var(--bg2);color:var(--tx);font-size:14px;font-family:inherit;outline:none;box-sizing:border-box}
-    textarea{resize:none;line-height:1.5}
-    select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394A3B8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px}
-    .reward-card{display:flex;align-items:center;gap:12px;padding:14px;border-radius:14px;border:1.5px solid var(--sun-bd);background:var(--sun-bg);margin-bottom:10px}
     .weak-chip{display:inline-flex;align-items:center;gap:5px;padding:5px 11px;border-radius:20px;font-size:12px;font-weight:600;background:var(--rose-bg);border:0.5px solid var(--rose-bd);color:var(--rose-tx);margin:3px}
-    .strong-chip{display:inline-flex;align-items:center;gap:5px;padding:5px 11px;border-radius:20px;font-size:12px;font-weight:600;background:var(--leaf-bg);border:0.5px solid var(--leaf-bd);color:var(--leaf-tx);margin:3px}
+    .strong-chip{display:inline-flex;align-items:center;gap:5px;padding:5px 11px;border-radius:20px;font-size:12px;font-weight:600;background:var(--green-bg);border:0.5px solid var(--green-bd);color:var(--green-tx);margin:3px}
     .streak-flame{font-size:18px;animation:flicker 1.5s ease-in-out infinite}
     @keyframes flicker{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+    .float{animation:float 3s ease-in-out infinite}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+    .cambridge-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700;background:var(--sky-bg);border:1px solid var(--sky-bd);color:var(--sky-tx)}
+    .reward-card{display:flex;align-items:center;gap:12px;padding:14px;border-radius:14px;border:1.5px solid var(--gold-bd);background:var(--gold-bg);margin-bottom:10px}
+    .label-sm{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--tx3);margin-bottom:4px}
+    .grade-btn{padding:10px 6px;border-radius:10px;border:1.5px solid var(--bd);background:var(--bg);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;color:var(--tx2);text-align:center;transition:all .15s}
+    .grade-btn.selected{background:var(--sky-bg);border-color:var(--sky-bd);color:var(--sky-tx)}
+    .unit-header{background:var(--sky-bg);border:1px solid var(--sky-bd);border-radius:12px;padding:10px 14px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+    input,select,textarea{width:100%;padding:11px 13px;border-radius:10px;border:1px solid var(--bd2);background:var(--bg2);color:var(--tx);font-size:14px;font-family:inherit;outline:none;box-sizing:border-box}
+    textarea{resize:none;line-height:1.5}
+    .cursor{opacity:.4;animation:blink .8s infinite}
+    @keyframes blink{0%,100%{opacity:.4}50%{opacity:0}}
   </style>
 </head>
 <body>
@@ -99,57 +91,50 @@
 
 <!-- WELCOME -->
 <div class="screen" id="s-welcome">
-  <div style="background:linear-gradient(135deg,var(--sky-bg) 0%,var(--plum-bg) 100%);border-radius:24px;padding:28px 22px 24px;border:1.5px solid var(--sky-bd);margin-bottom:18px;text-align:center">
-    <div style="font-size:60px;margin-bottom:10px" class="float">🌍</div>
-    <p style="font-size:30px;font-weight:800;color:var(--sky-tx);margin-bottom:6px">EngStart</p>
-    <p style="font-size:15px;color:var(--sky-md);line-height:1.5">Learn English step by step.<br>Pictures · Words · Sounds · Fun!</p>
+  <div style="background:linear-gradient(135deg,var(--sky-bg),var(--plum-bg));border-radius:24px;padding:28px 22px 24px;border:1.5px solid var(--sky-bd);margin-bottom:18px;text-align:center">
+    <div style="font-size:56px;margin-bottom:10px" class="float">🎓</div>
+    <p style="font-size:28px;font-weight:800;color:var(--sky-tx);margin-bottom:4px">EngStart</p>
+    <div style="margin-bottom:8px"><span class="cambridge-badge">📘 Cambridge English Curriculum</span></div>
+    <p style="font-size:14px;color:var(--sky-md);line-height:1.5">Picture-first English learning<br>for beginner readers</p>
   </div>
-  <button class="btn" onclick="go('s-setup')" style="margin-bottom:10px">🚀 Start learning!</button>
-  <button onclick="go('s-student')" id="continue-btn" style="width:100%;padding:14px;border-radius:13px;border:1.5px solid var(--sky-bd);background:var(--sky-bg);color:var(--sky-tx);font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;margin-bottom:10px;display:none">▶️ Continue</button>
-  <button onclick="go('s-parent')" style="width:100%;padding:13px;border-radius:13px;border:0.5px solid var(--bd);background:transparent;color:var(--tx2);font-size:14px;font-weight:500;cursor:pointer;font-family:inherit">👨‍👩‍👧 Parent dashboard</button>
+  <button class="btn" onclick="go('s-setup')" style="margin-bottom:10px">🚀 Get started</button>
+  <button onclick="go('s-student')" id="continue-btn" style="width:100%;padding:14px;border-radius:13px;border:1.5px solid var(--sky-bd);background:var(--sky-bg);color:var(--sky-tx);font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;margin-bottom:10px;display:none">▶️ Continue learning</button>
+  <button onclick="go('s-parent')" style="width:100%;padding:13px;border-radius:13px;border:0.5px solid var(--bd);background:transparent;color:var(--tx2);font-size:14px;font-weight:500;cursor:pointer;font-family:inherit">👨‍👩‍👧 Parent / Teacher dashboard</button>
 </div>
 
 <!-- SETUP -->
 <div class="screen" id="s-setup">
   <button class="back" onclick="go('s-welcome')">← Back</button>
   <p style="font-size:22px;font-weight:800;margin-bottom:4px">Hello! 👋</p>
-  <p style="font-size:14px;color:var(--tx2);margin-bottom:18px">Let's set up your learning profile.</p>
-
+  <p style="font-size:14px;color:var(--tx2);margin-bottom:18px">Tell us a little about your learner.</p>
   <div class="card">
     <div style="margin-bottom:14px">
-      <label style="font-size:13px;font-weight:600;display:block;margin-bottom:5px">👧 Your name / اسمك / 你的名字 / Votre nom</label>
-      <input type="text" id="setup-name" placeholder="e.g. Sara, Ahmed, Li Wei…" maxlength="30"/>
-    </div>
-    <div style="margin-bottom:14px">
-      <label style="font-size:13px;font-weight:600;display:block;margin-bottom:8px">🌍 Your home language</label>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px" id="lang-grid"></div>
+      <label style="font-size:13px;font-weight:600;display:block;margin-bottom:5px">👧 Student name</label>
+      <input type="text" id="setup-name" placeholder="e.g. Sara, Ahmed, Li…" maxlength="30"/>
     </div>
     <div>
-      <label style="font-size:13px;font-weight:600;display:block;margin-bottom:8px">📚 Grade / Class</label>
-      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px" id="grade-grid"></div>
+      <label style="font-size:13px;font-weight:600;display:block;margin-bottom:8px">📚 Cambridge level</label>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px" id="level-grid"></div>
     </div>
   </div>
-
   <div class="card">
-    <p style="font-size:13px;font-weight:700;margin-bottom:4px">👨‍👩‍👧 Parent contact</p>
-    <p style="font-size:12px;color:var(--tx2);margin-bottom:10px;line-height:1.5">For weekly progress reports. Optional.</p>
+    <p style="font-size:13px;font-weight:700;margin-bottom:4px">👨‍👩‍👧 Parent / Teacher contact</p>
+    <p style="font-size:12px;color:var(--tx2);margin-bottom:10px;line-height:1.5">For weekly AI progress reports. Optional.</p>
     <div style="margin-bottom:10px">
-      <label style="font-size:12px;font-weight:600;display:block;margin-bottom:4px">Parent name</label>
-      <input type="text" id="setup-parent" placeholder="Parent's name"/>
+      <label style="font-size:12px;font-weight:600;display:block;margin-bottom:4px">Name</label>
+      <input type="text" id="setup-parent" placeholder="Parent or teacher name"/>
     </div>
     <div>
       <label style="font-size:12px;font-weight:600;display:block;margin-bottom:4px">Email</label>
-      <input type="email" id="setup-email" placeholder="parent@email.com"/>
+      <input type="email" id="setup-email" placeholder="email@example.com"/>
     </div>
   </div>
-
   <div class="card">
     <p style="font-size:12px;font-weight:600;margin-bottom:4px">⚙️ Anthropic API Key</p>
-    <p style="font-size:11px;color:var(--tx2);margin-bottom:8px;line-height:1.5">For AI parent reports. Free at <a href="https://console.anthropic.com" style="color:var(--sky)">console.anthropic.com</a></p>
+    <p style="font-size:11px;color:var(--tx2);margin-bottom:8px;line-height:1.5">For AI progress reports. Free at <a href="https://console.anthropic.com" style="color:var(--sky)">console.anthropic.com</a></p>
     <input type="password" id="setup-key" placeholder="sk-ant-..."/>
   </div>
-
-  <button class="btn" onclick="saveSetup()">Let's go! 🚀</button>
+  <button class="btn" onclick="saveSetup()">Start learning! 🎓</button>
 </div>
 
 <!-- STUDENT HOME -->
@@ -157,21 +142,19 @@
   <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
     <div>
       <p style="font-size:22px;font-weight:800;margin-bottom:2px" id="student-greeting">Hello! 👋</p>
-      <p style="font-size:13px;color:var(--tx2)" id="student-meta">Beginner English</p>
+      <p style="font-size:13px;color:var(--tx2)" id="student-meta">Cambridge Pre-A1 Starters</p>
     </div>
     <div class="token-display"><span>⭐</span><span id="token-balance">0</span></div>
   </div>
   <div id="streak-bar" style="margin-bottom:12px"></div>
-  <div id="level-progress" style="margin-bottom:14px"></div>
-
+  <div id="level-progress-bar" style="margin-bottom:14px"></div>
   <div class="card" style="background:var(--sky-bg);border-color:var(--sky-bd);margin-bottom:14px">
-    <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--sky-md);margin-bottom:10px">🎯 Today's lessons</p>
+    <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--sky-md);margin-bottom:10px">🎯 Today's lesson</p>
     <div id="daily-missions"></div>
   </div>
-
-  <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--tx3);margin-bottom:10px" id="all-lessons-header">All lessons</p>
+  <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--tx3);margin-bottom:10px" id="all-header">All units</p>
   <div id="lesson-list"></div>
-  <button onclick="go('s-rewards-student')" style="width:100%;padding:13px;border-radius:13px;border:1.5px solid var(--sun-bd);background:var(--sun-bg);color:var(--sun-tx);font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;margin-top:4px">🎁 My rewards</button>
+  <button onclick="go('s-rewards-student')" style="width:100%;padding:13px;border-radius:13px;border:1.5px solid var(--gold-bd);background:var(--gold-bg);color:var(--gold-tx);font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;margin-top:4px">🎁 My rewards</button>
   <button class="btn-soft" onclick="go('s-welcome')">← Home</button>
 </div>
 
@@ -179,67 +162,65 @@
 <div class="screen" id="s-lesson-intro">
   <button class="back" onclick="go('s-student')">← Back</button>
   <div id="lesson-intro-card" style="border-radius:22px;padding:24px;border:2px solid;text-align:center;margin-bottom:18px"></div>
-  <button class="btn" onclick="startLesson()">Let's learn! →</button>
+  <button class="btn" onclick="startLesson()">Start lesson →</button>
 </div>
 
-<!-- LESSON — WORD CARD -->
+<!-- WORD CARDS -->
 <div class="screen" id="s-wordcard">
-  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
     <button class="back" style="padding:0;margin:0" onclick="go('s-student')">✕</button>
     <div class="progress-bar" style="flex:1;margin:0 12px"><div class="progress-fill" id="word-progress" style="width:0%"></div></div>
     <span id="word-counter" style="font-size:12px;color:var(--tx3);white-space:nowrap">1 / 6</span>
   </div>
+  <p style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--tx3);text-align:center;margin-bottom:6px" id="wordcard-unit-label"></p>
   <div id="wordcard-content" style="text-align:center"></div>
   <button class="btn" id="word-next" onclick="nextWord()">Next →</button>
 </div>
 
-<!-- LESSON — QUIZ -->
+<!-- QUIZ -->
 <div class="screen" id="s-quiz">
-  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
     <span style="font-size:13px;font-weight:700;color:var(--sky)">Quiz! 🧠</span>
     <div class="progress-bar" style="flex:1;margin:0 12px"><div class="progress-fill" id="quiz-progress" style="width:0%"></div></div>
     <span id="quiz-counter" style="font-size:12px;color:var(--tx3);white-space:nowrap">1 / 5</span>
   </div>
-  <p id="quiz-instruction" style="font-size:16px;font-weight:700;color:var(--tx);margin-bottom:6px"></p>
-  <p id="quiz-native" style="font-size:14px;color:var(--tx2);margin-bottom:18px"></p>
-  <div id="quiz-area"></div>
+  <div id="quiz-content"></div>
 </div>
 
 <!-- RESULT -->
 <div class="screen" id="s-result">
   <div id="result-card" style="border-radius:22px;padding:28px 22px;text-align:center;border:2px solid;margin-bottom:14px"></div>
   <div class="card" id="result-tokens" style="text-align:center;margin-bottom:12px"></div>
-  <button class="btn" onclick="go('s-student');renderStudentHome()">Keep learning! 🚀</button>
+  <div id="result-next-word" style="margin-bottom:12px"></div>
+  <button class="btn" onclick="go('s-student');renderStudentHome()">Keep learning! →</button>
 </div>
 
 <!-- STUDENT REWARDS -->
 <div class="screen" id="s-rewards-student">
   <button class="back" onclick="go('s-student')">← Back</button>
   <p style="font-size:22px;font-weight:800;margin-bottom:4px">🎁 My Rewards</p>
-  <p style="font-size:14px;color:var(--tx2);margin-bottom:14px">Collect stars, win prizes!</p>
-  <div style="text-align:center;margin-bottom:16px">
-    <div class="token-display"><span>⭐</span><span id="reward-balance">0</span> stars</div>
-  </div>
+  <p style="font-size:14px;color:var(--tx2);margin-bottom:14px">Collect stars, unlock prizes!</p>
+  <div style="text-align:center;margin-bottom:16px"><div class="token-display"><span>⭐</span><span id="reward-balance">0</span> stars</div></div>
   <div id="rewards-list"></div>
 </div>
 
 <!-- REDEEM -->
 <div class="screen" id="s-redeem">
-  <div style="background:linear-gradient(135deg,var(--sun-bg),var(--plum-bg));border-radius:24px;padding:32px 22px;text-align:center;border:1.5px solid var(--sun-bd);margin-bottom:16px">
+  <div style="background:linear-gradient(135deg,var(--gold-bg),var(--sky-bg));border-radius:24px;padding:32px 22px;text-align:center;border:1.5px solid var(--gold-bd);margin-bottom:16px">
     <div style="font-size:64px;margin-bottom:12px" id="redeem-icon">🎉</div>
-    <p style="font-size:24px;font-weight:800;color:var(--plum-tx);margin-bottom:8px">Reward unlocked!</p>
-    <p id="redeem-name" style="font-size:17px;color:var(--sun-tx);font-weight:600;margin-bottom:6px"></p>
-    <p style="font-size:14px;color:var(--tx2)">Show this to a parent! 🎊</p>
+    <p style="font-size:24px;font-weight:800;color:var(--sky-tx);margin-bottom:8px">Reward unlocked!</p>
+    <p id="redeem-name" style="font-size:17px;color:var(--gold-tx);font-weight:600;margin-bottom:6px"></p>
+    <p style="font-size:14px;color:var(--tx2)">Show this to a parent or teacher! 🎊</p>
   </div>
   <button class="btn" onclick="go('s-student');renderStudentHome()">Back to learning</button>
 </div>
 
-<!-- PARENT DASHBOARD -->
+<!-- PARENT / TEACHER DASHBOARD -->
 <div class="screen" id="s-parent">
   <button class="back" onclick="go('s-welcome')">← Home</button>
   <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px">
     <div>
-      <p style="font-size:22px;font-weight:800;margin-bottom:2px">Parent Dashboard 📊</p>
+      <p style="font-size:22px;font-weight:800;margin-bottom:2px">Dashboard 📊</p>
       <p style="font-size:13px;color:var(--tx2)" id="parent-meta">Loading…</p>
     </div>
     <button onclick="go('s-settings')" style="background:none;border:none;font-size:22px;cursor:pointer;padding:4px">⚙️</button>
@@ -247,7 +228,7 @@
   <div class="tab-bar">
     <button class="tab active" id="tab-overview" onclick="switchTab('overview')">Overview</button>
     <button class="tab" id="tab-week" onclick="switchTab('week')">Week</button>
-    <button class="tab" id="tab-rewards" onclick="switchTab('rewards')">Rewards</button>
+    <button class="tab" id="tab-vocab" onclick="switchTab('vocab')">Vocabulary</button>
     <button class="tab" id="tab-report" onclick="switchTab('report')">AI Report</button>
   </div>
   <div id="parent-content"></div>
@@ -260,12 +241,11 @@
   <div class="card">
     <p style="font-size:14px;font-weight:700;margin-bottom:10px">Student profile</p>
     <div style="margin-bottom:10px"><label style="font-size:12px;font-weight:600;display:block;margin-bottom:4px">Name</label><input type="text" id="s-name"/></div>
-    <div style="margin-bottom:10px"><label style="font-size:12px;font-weight:600;display:block;margin-bottom:6px">Home language</label><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px" id="s-lang-grid"></div></div>
-    <div><label style="font-size:12px;font-weight:600;display:block;margin-bottom:6px">Grade</label><div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px" id="s-grade-grid"></div></div>
+    <div><label style="font-size:12px;font-weight:600;display:block;margin-bottom:6px">Cambridge level</label><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px" id="s-level-grid"></div></div>
   </div>
   <div class="card">
-    <p style="font-size:14px;font-weight:700;margin-bottom:10px">Parent contact</p>
-    <div style="margin-bottom:10px"><label style="font-size:12px;font-weight:600;display:block;margin-bottom:4px">Parent name</label><input type="text" id="s-parent"/></div>
+    <p style="font-size:14px;font-weight:700;margin-bottom:10px">Contact</p>
+    <div style="margin-bottom:10px"><label style="font-size:12px;font-weight:600;display:block;margin-bottom:4px">Name</label><input type="text" id="s-parent"/></div>
     <div><label style="font-size:12px;font-weight:600;display:block;margin-bottom:4px">Email</label><input type="email" id="s-email"/></div>
   </div>
   <div class="card">
@@ -276,92 +256,206 @@
   <button class="btn-soft" style="color:var(--rose-md);border-color:var(--rose-bd)" onclick="resetProgress()">🗑 Reset progress</button>
 </div>
 
-</div><!-- root -->
-
+</div>
 <script>
-/* ══════════ EMAILJS ══════════ */
+/* ══ EMAILJS ══ */
 const EJS={publicKey:"YOUR_EMAILJS_PUBLIC_KEY",serviceId:"engstart_service",templateId:"engstart_report"};
 
-/* ══════════ LANGUAGES ══════════ */
-const LANGS=[
-  {code:"ar",flag:"🇸🇦",name:"Arabic",  native:"العربية"},
-  {code:"zh",flag:"🇨🇳",name:"Chinese", native:"中文"},
-  {code:"es",flag:"🇪🇸",name:"Spanish", native:"Español"},
-  {code:"fr",flag:"🇫🇷",name:"French",  native:"Français"},
-  {code:"hi",flag:"🇮🇳",name:"Hindi",   native:"हिन्दी"},
-  {code:"pt",flag:"🇧🇷",name:"Portuguese",native:"Português"},
-  {code:"ru",flag:"🇷🇺",name:"Russian", native:"Русский"},
-  {code:"uk",flag:"🇺🇦",name:"Ukrainian",native:"Українська"},
-  {code:"fa",flag:"🇮🇷",name:"Farsi",   native:"فارسی"},
-  {code:"so",flag:"🇸🇴",name:"Somali",  native:"Soomaali"},
-  {code:"tl",flag:"🇵🇭",name:"Tagalog", native:"Filipino"},
-  {code:"other",flag:"🌐",name:"Other",  native:"Other"},
+/* ══ CAMBRIDGE LEVELS ══ */
+const CAMBRIDGE_LEVELS=[
+  {id:"starters",label:"Pre-A1 Starters",icon:"🌱",desc:"First English words"},
+  {id:"movers",  label:"A1 Movers",      icon:"🌿",desc:"Simple sentences"},
+  {id:"flyers",  label:"A2 Flyers",      icon:"🌳",desc:"Everyday topics"},
+  {id:"ket",     label:"A2 Key (KET)",   icon:"🔑",desc:"Real world English"},
 ];
 
-/* translations: welcome phrase, "correct!", "try again", "well done" */
-const T={
-  ar:{hello:"مرحباً!",correct:"ممتاز! ✅",tryagain:"حاول مرة أخرى",welldone:"أحسنت!",goodjob:"عمل رائع!"},
-  zh:{hello:"你好！",correct:"正确！✅",tryagain:"再试一次",welldone:"做得好！",goodjob:"很棒！"},
-  es:{hello:"¡Hola!",correct:"¡Correcto! ✅",tryagain:"Inténtalo de nuevo",welldone:"¡Bien hecho!",goodjob:"¡Buen trabajo!"},
-  fr:{hello:"Bonjour!",correct:"Correct ! ✅",tryagain:"Essaie encore",welldone:"Bravo !",goodjob:"Bon travail !"},
-  hi:{hello:"नमस्ते!",correct:"सही! ✅",tryagain:"फिर कोशिश करो",welldone:"शाबाश!",goodjob:"बढ़िया काम!"},
-  pt:{hello:"Olá!",correct:"Correto! ✅",tryagain:"Tente novamente",welldone:"Muito bem!",goodjob:"Bom trabalho!"},
-  ru:{hello:"Привет!",correct:"Правильно! ✅",tryagain:"Попробуй ещё",welldone:"Молодец!",goodjob:"Отличная работа!"},
-  uk:{hello:"Привіт!",correct:"Правильно! ✅",tryagain:"Спробуй ще раз",welldone:"Молодець!",goodjob:"Чудова робота!"},
-  fa:{hello:"سلام!",correct:"درست! ✅",tryagain:"دوباره تلاش کن",welldone:"آفرین!",goodjob:"کار عالی!"},
-  so:{hello:"Salaan!",correct:"Saxsan! ✅",tryagain:"Isku day mar kale",welldone:"Aad baad u fiicantahay!",goodjob:"Shaqo fiican!"},
-  tl:{hello:"Kamusta!",correct:"Tama! ✅",tryagain:"Subukan muli",welldone:"Magaling!",goodjob:"Magandang trabaho!"},
-  other:{hello:"Hello!",correct:"Correct! ✅",tryagain:"Try again",welldone:"Well done!",goodjob:"Great job!"},
-};
-function t(key){const u=getUser();const lang=(u?.lang)||"other";return(T[lang]||T.other)[key]||T.other[key];}
-
-/* ══════════ LESSONS ══════════ */
-const LESSONS=[
-  {id:"l01",title:"Numbers 1–10",icon:"🔢",color:"sky",level:1,tokens:10,minutes:5,
-   words:[{word:"One",emoji:"1️⃣",native:{ar:"واحد",zh:"一",es:"Uno",fr:"Un",hi:"एक",pt:"Um",ru:"Один",uk:"Один",fa:"یک",so:"Kow",tl:"Isa",other:"1"}},{word:"Two",emoji:"2️⃣",native:{ar:"اثنان",zh:"二",es:"Dos",fr:"Deux",hi:"दो",pt:"Dois",ru:"Два",uk:"Два",fa:"دو",so:"Laba",tl:"Dalawa",other:"2"}},{word:"Three",emoji:"3️⃣",native:{ar:"ثلاثة",zh:"三",es:"Tres",fr:"Trois",hi:"तीन",pt:"Três",ru:"Три",uk:"Три",fa:"سه",so:"Saddex",tl:"Tatlo",other:"3"}},{word:"Four",emoji:"4️⃣",native:{ar:"أربعة",zh:"四",es:"Cuatro",fr:"Quatre",hi:"चार",pt:"Quatro",ru:"Четыре",uk:"Чотири",fa:"چهار",so:"Afar",tl:"Apat",other:"4"}},{word:"Five",emoji:"5️⃣",native:{ar:"خمسة",zh:"五",es:"Cinco",fr:"Cinq",hi:"पाँच",pt:"Cinco",ru:"Пять",uk:"П'ять",fa:"پنج",so:"Shan",tl:"Lima",other:"5"}},{word:"Ten",emoji:"🔟",native:{ar:"عشرة",zh:"十",es:"Diez",fr:"Dix",hi:"दस",pt:"Dez",ru:"Десять",uk:"Десять",fa:"ده",so:"Toban",tl:"Sampu",other:"10"}}],
-   quizType:"match",concept:"numbers"},
-  {id:"l02",title:"Colours",icon:"🎨",color:"rose",level:1,tokens:10,minutes:5,
-   words:[{word:"Red",emoji:"🔴",native:{ar:"أحمر",zh:"红色",es:"Rojo",fr:"Rouge",hi:"लाल",pt:"Vermelho",ru:"Красный",uk:"Червоний",fa:"قرمز",so:"Cas",tl:"Pula",other:"Red"}},{word:"Blue",emoji:"🔵",native:{ar:"أزرق",zh:"蓝色",es:"Azul",fr:"Bleu",hi:"नीला",pt:"Azul",ru:"Синий",uk:"Синій",fa:"آبی",so:"Buluug",tl:"Asul",other:"Blue"}},{word:"Green",emoji:"🟢",native:{ar:"أخضر",zh:"绿色",es:"Verde",fr:"Vert",hi:"हरा",pt:"Verde",ru:"Зелёный",uk:"Зелений",fa:"سبز",so:"Cagaar",tl:"Berde",other:"Green"}},{word:"Yellow",emoji:"🟡",native:{ar:"أصفر",zh:"黄色",es:"Amarillo",fr:"Jaune",hi:"पीला",pt:"Amarelo",ru:"Жёлтый",uk:"Жовтий",fa:"زرد",so:"Jaalle",tl:"Dilaw",other:"Yellow"}},{word:"White",emoji:"⬜",native:{ar:"أبيض",zh:"白色",es:"Blanco",fr:"Blanc",hi:"सफ़ेद",pt:"Branco",ru:"Белый",uk:"Білий",fa:"سفید",so:"Cad",tl:"Puti",other:"White"}},{word:"Black",emoji:"⬛",native:{ar:"أسود",zh:"黑色",es:"Negro",fr:"Noir",hi:"काला",pt:"Preto",ru:"Чёрный",uk:"Чорний",fa:"سیاه",so:"Madow",tl:"Itim",other:"Black"}}],
-   quizType:"match",concept:"colours"},
-  {id:"l03",title:"Animals",icon:"🐾",color:"leaf",level:1,tokens:10,minutes:6,
-   words:[{word:"Cat",emoji:"🐱",native:{ar:"قطة",zh:"猫",es:"Gato",fr:"Chat",hi:"बिल्ली",pt:"Gato",ru:"Кот",uk:"Кіт",fa:"گربه",so:"Bisad",tl:"Pusa",other:"Cat"}},{word:"Dog",emoji:"🐶",native:{ar:"كلب",zh:"狗",es:"Perro",fr:"Chien",hi:"कुत्ता",pt:"Cachorro",ru:"Собака",uk:"Собака",fa:"سگ",so:"Eey",tl:"Aso",other:"Dog"}},{word:"Bird",emoji:"🐦",native:{ar:"طائر",zh:"鸟",es:"Pájaro",fr:"Oiseau",hi:"पक्षी",pt:"Pássaro",ru:"Птица",uk:"Птах",fa:"پرنده",so:"Shimbir",tl:"Ibon",other:"Bird"}},{word:"Fish",emoji:"🐟",native:{ar:"سمكة",zh:"鱼",es:"Pez",fr:"Poisson",hi:"मछली",pt:"Peixe",ru:"Рыба",uk:"Риба",fa:"ماهی",so:"Kalluun",tl:"Isda",other:"Fish"}},{word:"Cow",emoji:"🐄",native:{ar:"بقرة",zh:"牛",es:"Vaca",fr:"Vache",hi:"गाय",pt:"Vaca",ru:"Корова",uk:"Корова",fa:"گاو",so:"Lo",tl:"Baka",other:"Cow"}},{word:"Horse",emoji:"🐴",native:{ar:"حصان",zh:"马",es:"Caballo",fr:"Cheval",hi:"घोड़ा",pt:"Cavalo",ru:"Лошадь",uk:"Кінь",fa:"اسب",so:"Faras",tl:"Kabayo",other:"Horse"}}],
-   quizType:"match",concept:"animals"},
-  {id:"l04",title:"Food & Drinks",icon:"🍎",color:"coral",level:1,tokens:10,minutes:6,
-   words:[{word:"Apple",emoji:"🍎",native:{ar:"تفاحة",zh:"苹果",es:"Manzana",fr:"Pomme",hi:"सेब",pt:"Maçã",ru:"Яблоко",uk:"Яблуко",fa:"سیب",so:"Tufaax",tl:"Mansanas",other:"Apple"}},{word:"Bread",emoji:"🍞",native:{ar:"خبز",zh:"面包",es:"Pan",fr:"Pain",hi:"रोटी",pt:"Pão",ru:"Хлеб",uk:"Хліб",fa:"نان",so:"Rooti",tl:"Tinapay",other:"Bread"}},{word:"Milk",emoji:"🥛",native:{ar:"حليب",zh:"牛奶",es:"Leche",fr:"Lait",hi:"दूध",pt:"Leite",ru:"Молоко",uk:"Молоко",fa:"شیر",so:"Caano",tl:"Gatas",other:"Milk"}},{word:"Water",emoji:"💧",native:{ar:"ماء",zh:"水",es:"Agua",fr:"Eau",hi:"पानी",pt:"Água",ru:"Вода",uk:"Вода",fa:"آب",so:"Biyo",tl:"Tubig",other:"Water"}},{word:"Rice",emoji:"🍚",native:{ar:"أرز",zh:"米饭",es:"Arroz",fr:"Riz",hi:"चावल",pt:"Arroz",ru:"Рис",uk:"Рис",fa:"برنج",so:"Bariis",tl:"Kanin",other:"Rice"}},{word:"Egg",emoji:"🥚",native:{ar:"بيضة",zh:"鸡蛋",es:"Huevo",fr:"Œuf",hi:"अंडा",pt:"Ovo",ru:"Яйцо",uk:"Яйце",fa:"تخم مرغ",so:"Ukun",tl:"Itlog",other:"Egg"}}],
-   quizType:"match",concept:"food"},
-  {id:"l05",title:"My Body",icon:"🧍",color:"plum",level:1,tokens:10,minutes:5,
-   words:[{word:"Head",emoji:"🗣️",native:{ar:"رأس",zh:"头",es:"Cabeza",fr:"Tête",hi:"सिर",pt:"Cabeça",ru:"Голова",uk:"Голова",fa:"سر",so:"Madax",tl:"Ulo",other:"Head"}},{word:"Hand",emoji:"🤚",native:{ar:"يد",zh:"手",es:"Mano",fr:"Main",hi:"हाथ",pt:"Mão",ru:"Рука",uk:"Рука",fa:"دست",so:"Gacanta",tl:"Kamay",other:"Hand"}},{word:"Eye",emoji:"👁️",native:{ar:"عين",zh:"眼睛",es:"Ojo",fr:"Œil",hi:"आँख",pt:"Olho",ru:"Глаз",uk:"Око",fa:"چشم",so:"Il",tl:"Mata",other:"Eye"}},{word:"Mouth",emoji:"👄",native:{ar:"فم",zh:"嘴",es:"Boca",fr:"Bouche",hi:"मुँह",pt:"Boca",ru:"Рот",uk:"Рот",fa:"دهان",so:"Afka",tl:"Bibig",other:"Mouth"}},{word:"Foot",emoji:"🦶",native:{ar:"قدم",zh:"脚",es:"Pie",fr:"Pied",hi:"पैर",pt:"Pé",ru:"Нога",uk:"Нога",fa:"پا",so:"Cagta",tl:"Paa",other:"Foot"}},{word:"Ear",emoji:"👂",native:{ar:"أذن",zh:"耳朵",es:"Oreja",fr:"Oreille",hi:"कान",pt:"Orelha",ru:"Ухо",uk:"Вухо",fa:"گوش",so:"Dhego",tl:"Tainga",other:"Ear"}}],
-   quizType:"match",concept:"body"},
-  {id:"l06",title:"Classroom",icon:"🏫",color:"sky",level:2,tokens:12,minutes:6,
-   words:[{word:"Book",emoji:"📚",native:{ar:"كتاب",zh:"书",es:"Libro",fr:"Livre",hi:"किताब",pt:"Livro",ru:"Книга",uk:"Книга",fa:"کتاب",so:"Buug",tl:"Libro",other:"Book"}},{word:"Pencil",emoji:"✏️",native:{ar:"قلم رصاص",zh:"铅笔",es:"Lápiz",fr:"Crayon",hi:"पेंसिल",pt:"Lápis",ru:"Карандаш",uk:"Олівець",fa:"مداد",so:"Qalin",tl:"Lapis",other:"Pencil"}},{word:"Teacher",emoji:"👩‍🏫",native:{ar:"معلم",zh:"老师",es:"Maestra",fr:"Professeur",hi:"शिक्षक",pt:"Professor",ru:"Учитель",uk:"Вчитель",fa:"معلم",so:"Macalin",tl:"Guro",other:"Teacher"}},{word:"Chair",emoji:"🪑",native:{ar:"كرسي",zh:"椅子",es:"Silla",fr:"Chaise",hi:"कुर्सी",pt:"Cadeira",ru:"Стул",uk:"Стілець",fa:"صندلی",so:"Kursi",tl:"Upuan",other:"Chair"}},{word:"Desk",emoji:"🪞",native:{ar:"مكتب",zh:"桌子",es:"Escritorio",fr:"Bureau",hi:"मेज़",pt:"Mesa",ru:"Стол",uk:"Парта",fa:"میز",so:"Miiska",tl:"Mesa",other:"Desk"}},{word:"School",emoji:"🏫",native:{ar:"مدرسة",zh:"学校",es:"Escuela",fr:"École",hi:"स्कूल",pt:"Escola",ru:"Школа",uk:"Школа",fa:"مدرسه",so:"Iskool",tl:"Paaralan",other:"School"}}],
-   quizType:"match",concept:"classroom"},
-  {id:"l07",title:"Feelings",icon:"😊",color:"sun",level:2,tokens:12,minutes:5,
-   words:[{word:"Happy",emoji:"😊",native:{ar:"سعيد",zh:"快乐",es:"Feliz",fr:"Heureux",hi:"खुश",pt:"Feliz",ru:"Счастливый",uk:"Щасливий",fa:"خوشحال",so:"Farxad",tl:"Masaya",other:"Happy"}},{word:"Sad",emoji:"😢",native:{ar:"حزين",zh:"难过",es:"Triste",fr:"Triste",hi:"दुखी",pt:"Triste",ru:"Грустный",uk:"Сумний",fa:"غمگین",so:"Murugsan",tl:"Malungkot",other:"Sad"}},{word:"Hungry",emoji:"😋",native:{ar:"جائع",zh:"饿",es:"Hambriento",fr:"Faim",hi:"भूखा",pt:"Com fome",ru:"Голодный",uk:"Голодний",fa:"گرسنه",so:"Gaajaysan",tl:"Gutom",other:"Hungry"}},{word:"Tired",emoji:"😴",native:{ar:"متعب",zh:"累",es:"Cansado",fr:"Fatigué",hi:"थका हुआ",pt:"Cansado",ru:"Усталый",uk:"Втомлений",fa:"خسته",so:"Daallan",tl:"Pagod",other:"Tired"}},{word:"Scared",emoji:"😨",native:{ar:"خائف",zh:"害怕",es:"Asustado",fr:"Effrayé",hi:"डरा हुआ",pt:"Assustado",ru:"Испуганный",uk:"Наляканий",fa:"ترسیده",so:"Cabsanaya",tl:"Takot",other:"Scared"}},{word:"Angry",emoji:"😠",native:{ar:"غاضب",zh:"生气",es:"Enojado",fr:"En colère",hi:"गुस्से में",pt:"Com raiva",ru:"Злой",uk:"Злий",fa:"عصبانی",so:"Cadhaysan",tl:"Galit",other:"Angry"}}],
-   quizType:"match",concept:"feelings"},
-  {id:"l08",title:"My Family",icon:"👨‍👩‍👧",color:"rose",level:2,tokens:12,minutes:5,
-   words:[{word:"Mother",emoji:"👩",native:{ar:"أم",zh:"妈妈",es:"Madre",fr:"Mère",hi:"माँ",pt:"Mãe",ru:"Мама",uk:"Мама",fa:"مادر",so:"Hooyo",tl:"Nanay",other:"Mother"}},{word:"Father",emoji:"👨",native:{ar:"أب",zh:"爸爸",es:"Padre",fr:"Père",hi:"पिताजी",pt:"Pai",ru:"Папа",uk:"Тато",fa:"پدر",so:"Aabe",tl:"Tatay",other:"Father"}},{word:"Sister",emoji:"👧",native:{ar:"أخت",zh:"姐妹",es:"Hermana",fr:"Sœur",hi:"बहन",pt:"Irmã",ru:"Сестра",uk:"Сестра",fa:"خواهر",so:"Walaasha",tl:"Ate",other:"Sister"}},{word:"Brother",emoji:"👦",native:{ar:"أخ",zh:"兄弟",es:"Hermano",fr:"Frère",hi:"भाई",pt:"Irmão",ru:"Брат",uk:"Брат",fa:"برادر",so:"Walaalka",tl:"Kuya",other:"Brother"}},{word:"Baby",emoji:"👶",native:{ar:"طفل",zh:"婴儿",es:"Bebé",fr:"Bébé",hi:"बच्चा",pt:"Bebê",ru:"Малыш",uk:"Малюк",fa:"نوزاد",so:"Ilmo",tl:"Sanggol",other:"Baby"}},{word:"Family",emoji:"👨‍👩‍👧‍👦",native:{ar:"عائلة",zh:"家庭",es:"Familia",fr:"Famille",hi:"परिवार",pt:"Família",ru:"Семья",uk:"Сім'я",fa:"خانواده",so:"Qoyska",tl:"Pamilya",other:"Family"}}],
-   quizType:"match",concept:"family"},
-  {id:"l09",title:"Greetings",icon:"👋",color:"leaf",level:2,tokens:12,minutes:5,
-   words:[{word:"Hello",emoji:"👋",native:{ar:"مرحبا",zh:"你好",es:"Hola",fr:"Bonjour",hi:"नमस्ते",pt:"Olá",ru:"Привет",uk:"Привіт",fa:"سلام",so:"Salaan",tl:"Kamusta",other:"Hello"}},{word:"Goodbye",emoji:"👋",native:{ar:"وداعاً",zh:"再见",es:"Adiós",fr:"Au revoir",hi:"अलविदा",pt:"Tchau",ru:"Пока",uk:"До побачення",fa:"خداحافظ",so:"Nabad gelyo",tl:"Paalam",other:"Goodbye"}},{word:"Please",emoji:"🙏",native:{ar:"من فضلك",zh:"请",es:"Por favor",fr:"S'il vous plaît",hi:"कृपया",pt:"Por favor",ru:"Пожалуйста",uk:"Будь ласка",fa:"لطفاً",so:"Fadlan",tl:"Pakiusap",other:"Please"}},{word:"Thank you",emoji:"😊",native:{ar:"شكراً",zh:"谢谢",es:"Gracias",fr:"Merci",hi:"धन्यवाद",pt:"Obrigado",ru:"Спасибо",uk:"Дякую",fa:"ممنون",so:"Mahadsanid",tl:"Salamat",other:"Thank you"}},{word:"Yes",emoji:"✅",native:{ar:"نعم",zh:"是",es:"Sí",fr:"Oui",hi:"हाँ",pt:"Sim",ru:"Да",uk:"Так",fa:"بله",so:"Haa",tl:"Oo",other:"Yes"}},{word:"No",emoji:"❌",native:{ar:"لا",zh:"不",es:"No",fr:"Non",hi:"नहीं",pt:"Não",ru:"Нет",uk:"Ні",fa:"نه",so:"Maya",tl:"Hindi",other:"No"}}],
-   quizType:"match",concept:"greetings"},
-  {id:"l10",title:"Weather & Nature",icon:"🌤️",color:"sky",level:3,tokens:14,minutes:6,
-   words:[{word:"Sun",emoji:"☀️",native:{ar:"شمس",zh:"太阳",es:"Sol",fr:"Soleil",hi:"सूरज",pt:"Sol",ru:"Солнце",uk:"Сонце",fa:"خورشید",so:"Qorrax",tl:"Araw",other:"Sun"}},{word:"Rain",emoji:"🌧️",native:{ar:"مطر",zh:"雨",es:"Lluvia",fr:"Pluie",hi:"बारिश",pt:"Chuva",ru:"Дождь",uk:"Дощ",fa:"باران",so:"Roob",tl:"Ulan",other:"Rain"}},{word:"Snow",emoji:"❄️",native:{ar:"ثلج",zh:"雪",es:"Nieve",fr:"Neige",hi:"बर्फ",pt:"Neve",ru:"Снег",uk:"Сніг",fa:"برف",so:"Baraf",tl:"Niyebe",other:"Snow"}},{word:"Wind",emoji:"💨",native:{ar:"ريح",zh:"风",es:"Viento",fr:"Vent",hi:"हवा",pt:"Vento",ru:"Ветер",uk:"Вітер",fa:"باد",so:"Dabayl",tl:"Hangin",other:"Wind"}},{word:"Tree",emoji:"🌳",native:{ar:"شجرة",zh:"树",es:"Árbol",fr:"Arbre",hi:"पेड़",pt:"Árvore",ru:"Дерево",uk:"Дерево",fa:"درخت",so:"Geed",tl:"Puno",other:"Tree"}},{word:"Flower",emoji:"🌸",native:{ar:"زهرة",zh:"花",es:"Flor",fr:"Fleur",hi:"फूल",pt:"Flor",ru:"Цветок",uk:"Квітка",fa:"گل",so:"Ubaxa",tl:"Bulaklak",other:"Flower"}}],
-   quizType:"match",concept:"nature"},
+/* ══ CURRICULUM ══
+   Aligned to Cambridge Young Learners English (YLE) syllabus:
+   Pre-A1 Starters → A1 Movers → A2 Flyers
+   Topics: Animals, Body, Clothes, Colours, Family, Food, Home, School,
+           Sports/leisure, Toys, Transport, Weather + KET expansions
+*/
+const UNITS=[
+  /* ── PRE-A1 STARTERS ── */
+  {id:"u01",level:"starters",unit:"Unit 1",title:"Animals",icon:"🐾",color:"leaf",
+   camb:"Cambridge Pre-A1 Starters — Animals topic",
+   words:[
+     {w:"cat",e:"🐱",s:"A cat says meow.",ex:"The cat is on the mat."},
+     {w:"dog",e:"🐶",s:"A dog says woof.",ex:"I have a dog at home."},
+     {w:"fish",e:"🐟",s:"Fish swim in water.",ex:"The fish is orange."},
+     {w:"bird",e:"🐦",s:"A bird can fly.",ex:"The bird is in the tree."},
+     {w:"rabbit",e:"🐰",s:"A rabbit has long ears.",ex:"My rabbit eats carrots."},
+     {w:"frog",e:"🐸",s:"A frog can jump.",ex:"The frog is green."},
+   ],quizTypes:["picture-to-word","word-to-picture","listen-choose"]},
+  {id:"u02",level:"starters",unit:"Unit 2",title:"Colours",icon:"🎨",color:"rose",
+   camb:"Cambridge Pre-A1 Starters — Colours topic",
+   words:[
+     {w:"red",e:"🔴",s:"Red is the colour of apples.",ex:"My bag is red."},
+     {w:"blue",e:"🔵",s:"Blue is the colour of the sky.",ex:"The sky is blue today."},
+     {w:"green",e:"🟢",s:"Green is the colour of grass.",ex:"The frog is green."},
+     {w:"yellow",e:"🟡",s:"Yellow is the colour of the sun.",ex:"I have a yellow pencil."},
+     {w:"orange",e:"🟠",s:"Orange is the colour of oranges.",ex:"The ball is orange."},
+     {w:"pink",e:"🩷",s:"Pink is a light red.",ex:"She has a pink bag."},
+   ],quizTypes:["picture-to-word","word-to-picture"]},
+  {id:"u03",level:"starters",unit:"Unit 3",title:"Numbers 1–20",icon:"🔢",color:"sky",
+   camb:"Cambridge Pre-A1 Starters — Numbers topic",
+   words:[
+     {w:"one",e:"1️⃣",s:"One — just one thing.",ex:"I have one pen."},
+     {w:"two",e:"2️⃣",s:"Two — count: one, two.",ex:"I have two hands."},
+     {w:"five",e:"5️⃣",s:"Five fingers on one hand.",ex:"Five cats are here."},
+     {w:"ten",e:"🔟",s:"Ten — both hands together.",ex:"Ten books are on the table."},
+     {w:"fifteen",e:"🔢",s:"Ten and five make fifteen.",ex:"There are fifteen children."},
+     {w:"twenty",e:"💯",s:"Two tens make twenty.",ex:"Twenty birds in the tree."},
+   ],quizTypes:["picture-to-word","word-to-picture"]},
+  {id:"u04",level:"starters",unit:"Unit 4",title:"My Body",icon:"🧍",color:"plum",
+   camb:"Cambridge Pre-A1 Starters — Body topic",
+   words:[
+     {w:"head",e:"👤",s:"Your head is at the top.",ex:"Put your hand on your head."},
+     {w:"hand",e:"🤚",s:"You have two hands.",ex:"Wash your hands, please."},
+     {w:"eye",e:"👁️",s:"You see with your eyes.",ex:"I have brown eyes."},
+     {w:"nose",e:"👃",s:"You smell with your nose.",ex:"My nose is cold."},
+     {w:"mouth",e:"👄",s:"You eat and talk with your mouth.",ex:"Open your mouth wide."},
+     {w:"ear",e:"👂",s:"You hear with your ears.",ex:"He has small ears."},
+   ],quizTypes:["picture-to-word","word-to-picture"]},
+  {id:"u05",level:"starters",unit:"Unit 5",title:"Food & Drinks",icon:"🍎",color:"coral",
+   camb:"Cambridge Pre-A1 Starters — Food & drink topic",
+   words:[
+     {w:"apple",e:"🍎",s:"An apple is a fruit.",ex:"I eat an apple every day."},
+     {w:"milk",e:"🥛",s:"Milk is white and cold.",ex:"I drink milk at breakfast."},
+     {w:"bread",e:"🍞",s:"Bread is for sandwiches.",ex:"He eats bread and butter."},
+     {w:"water",e:"💧",s:"We drink water every day.",ex:"Please give me water."},
+     {w:"rice",e:"🍚",s:"Rice is white and small.",ex:"We eat rice for dinner."},
+     {w:"chicken",e:"🍗",s:"Chicken is meat from a bird.",ex:"I like chicken and rice."},
+   ],quizTypes:["picture-to-word","word-to-picture"]},
+  {id:"u06",level:"starters",unit:"Unit 6",title:"My Family",icon:"👨‍👩‍👧",color:"gold",
+   camb:"Cambridge Pre-A1 Starters — Family topic",
+   words:[
+     {w:"mother",e:"👩",s:"My mother is at home.",ex:"My mother cooks dinner."},
+     {w:"father",e:"👨",s:"My father goes to work.",ex:"My father has a car."},
+     {w:"sister",e:"👧",s:"My sister is younger than me.",ex:"My sister likes pink."},
+     {w:"brother",e:"👦",s:"My brother plays football.",ex:"My brother is seven."},
+     {w:"grandmother",e:"👵",s:"My grandmother is old and kind.",ex:"My grandmother bakes cakes."},
+     {w:"grandfather",e:"👴",s:"My grandfather reads books.",ex:"My grandfather has glasses."},
+   ],quizTypes:["picture-to-word","word-to-picture"]},
+  /* ── A1 MOVERS ── */
+  {id:"u07",level:"movers",unit:"Unit 7",title:"School & Classroom",icon:"🏫",color:"sky",
+   camb:"Cambridge A1 Movers — School topic",
+   words:[
+     {w:"book",e:"📚",s:"We read books at school.",ex:"Open your book to page five."},
+     {w:"pencil",e:"✏️",s:"A pencil writes in grey.",ex:"Can I borrow your pencil?"},
+     {w:"teacher",e:"👩‍🏫",s:"The teacher helps students learn.",ex:"Our teacher is very kind."},
+     {w:"lesson",e:"📖",s:"We have English lessons today.",ex:"The maths lesson is fun."},
+     {w:"homework",e:"📝",s:"Homework is work done at home.",ex:"I do my homework after school."},
+     {w:"classroom",e:"🏫",s:"A classroom is where we study.",ex:"Our classroom is big and bright."},
+   ],quizTypes:["picture-to-word","sentence-gap"]},
+  {id:"u08",level:"movers",unit:"Unit 8",title:"Clothes",icon:"👕",color:"rose",
+   camb:"Cambridge A1 Movers — Clothes topic",
+   words:[
+     {w:"shirt",e:"👕",s:"A shirt covers your body.",ex:"He wears a blue shirt."},
+     {w:"trousers",e:"👖",s:"Trousers cover your legs.",ex:"She has new trousers."},
+     {w:"shoes",e:"👟",s:"You wear shoes on your feet.",ex:"My shoes are black."},
+     {w:"hat",e:"🎩",s:"A hat goes on your head.",ex:"Put on your hat — it is cold!"},
+     {w:"coat",e:"🧥",s:"A coat keeps you warm.",ex:"She wears a red coat in winter."},
+     {w:"dress",e:"👗",s:"A dress is one long piece of clothing.",ex:"The girl wears a yellow dress."},
+   ],quizTypes:["picture-to-word","sentence-gap"]},
+  {id:"u09",level:"movers",unit:"Unit 9",title:"Feelings",icon:"😊",color:"sun",
+   camb:"Cambridge A1 Movers — Feelings topic",
+   words:[
+     {w:"happy",e:"😊",s:"Happy means you feel good.",ex:"I am happy today because it is sunny."},
+     {w:"sad",e:"😢",s:"Sad means you feel bad.",ex:"She is sad because her dog is ill."},
+     {w:"hungry",e:"😋",s:"Hungry means you want food.",ex:"I am hungry. Can I have a snack?"},
+     {w:"tired",e:"😴",s:"Tired means you need sleep.",ex:"He is tired after the football game."},
+     {w:"scared",e:"😨",s:"Scared means something frightens you.",ex:"She is scared of the big dog."},
+     {w:"excited",e:"🤩",s:"Excited means you feel very happy about something.",ex:"I am excited about my birthday!"},
+   ],quizTypes:["picture-to-word","sentence-gap"]},
+  {id:"u10",level:"movers",unit:"Unit 10",title:"Sports & Activities",icon:"⚽",color:"leaf",
+   camb:"Cambridge A1 Movers — Sports & leisure topic",
+   words:[
+     {w:"football",e:"⚽",s:"Football is played with your feet.",ex:"I play football on Saturdays."},
+     {w:"swimming",e:"🏊",s:"Swimming is moving in water.",ex:"She is good at swimming."},
+     {w:"running",e:"🏃",s:"Running is moving fast on your feet.",ex:"I like running in the park."},
+     {w:"reading",e:"📖",s:"Reading is looking at words to understand them.",ex:"My favourite hobby is reading."},
+     {w:"painting",e:"🎨",s:"Painting is making pictures with colour.",ex:"We are painting pictures in class."},
+     {w:"dancing",e:"💃",s:"Dancing is moving your body to music.",ex:"She loves dancing at parties."},
+   ],quizTypes:["picture-to-word","sentence-gap"]},
+  {id:"u11",level:"movers",unit:"Unit 11",title:"My Home",icon:"🏠",color:"teal",
+   camb:"Cambridge A1 Movers — Home topic",
+   words:[
+     {w:"bedroom",e:"🛏️",s:"A bedroom is where you sleep.",ex:"My bedroom has a blue wall."},
+     {w:"kitchen",e:"🍳",s:"A kitchen is where food is cooked.",ex:"Mum is in the kitchen."},
+     {w:"garden",e:"🌳",s:"A garden is outside the house.",ex:"We play in the garden."},
+     {w:"table",e:"🪑",s:"We eat at the table.",ex:"Put your books on the table."},
+     {w:"window",e:"🪟",s:"A window lets light in.",ex:"Open the window — it is hot."},
+     {w:"door",e:"🚪",s:"A door opens and closes.",ex:"Please close the door."},
+   ],quizTypes:["picture-to-word","sentence-gap"]},
+  {id:"u12",level:"movers",unit:"Unit 12",title:"Transport",icon:"🚌",color:"sky",
+   camb:"Cambridge A1 Movers — Transport topic",
+   words:[
+     {w:"bus",e:"🚌",s:"A bus carries many people.",ex:"I take the bus to school."},
+     {w:"car",e:"🚗",s:"A car has four wheels.",ex:"My father drives a red car."},
+     {w:"train",e:"🚂",s:"A train moves on tracks.",ex:"We took the train to London."},
+     {w:"bicycle",e:"🚲",s:"A bicycle has two wheels.",ex:"She rides her bicycle to school."},
+     {w:"plane",e:"✈️",s:"A plane flies in the sky.",ex:"We flew on a plane to Spain."},
+     {w:"boat",e:"⛵",s:"A boat moves on water.",ex:"We went on a boat on the lake."},
+   ],quizTypes:["picture-to-word","sentence-gap"]},
+  /* ── A2 FLYERS ── */
+  {id:"u13",level:"flyers",unit:"Unit 13",title:"Weather & Seasons",icon:"🌤️",color:"sky",
+   camb:"Cambridge A2 Flyers — Weather topic",
+   words:[
+     {w:"sunny",e:"☀️",s:"It is sunny — the sun is shining.",ex:"It is a sunny day. Let's go outside."},
+     {w:"cloudy",e:"☁️",s:"Cloudy means there are clouds in the sky.",ex:"It is cloudy today so we stayed inside."},
+     {w:"rainy",e:"🌧️",s:"Rainy means rain is falling.",ex:"It was very rainy, so I used an umbrella."},
+     {w:"snowy",e:"❄️",s:"Snowy means snow is falling.",ex:"On snowy days we build snowmen."},
+     {w:"windy",e:"💨",s:"Windy means the wind is blowing.",ex:"It is too windy to fly the kite."},
+     {w:"hot",e:"🌡️",s:"Hot means the temperature is very high.",ex:"It is too hot to wear a coat today."},
+   ],quizTypes:["picture-to-word","sentence-gap","true-false"]},
+  {id:"u14",level:"flyers",unit:"Unit 14",title:"Nature & Environment",icon:"🌿",color:"leaf",
+   camb:"Cambridge A2 Flyers — Natural world topic",
+   words:[
+     {w:"forest",e:"🌲",s:"A forest is a large area of trees.",ex:"Many animals live in the forest."},
+     {w:"river",e:"🏞️",s:"A river is moving water through land.",ex:"We swam in the cool river."},
+     {w:"mountain",e:"⛰️",s:"A mountain is very high land.",ex:"We climbed the mountain in summer."},
+     {w:"beach",e:"🏖️",s:"A beach is sand next to the sea.",ex:"We built sandcastles on the beach."},
+     {w:"farm",e:"🌾",s:"A farm is where food grows.",ex:"The farmer has cows on his farm."},
+     {w:"ocean",e:"🌊",s:"The ocean is a very large sea.",ex:"Whales live in the ocean."},
+   ],quizTypes:["picture-to-word","sentence-gap","true-false"]},
+  {id:"u15",level:"flyers",unit:"Unit 15",title:"Jobs & Occupations",icon:"👷",color:"coral",
+   camb:"Cambridge A2 Flyers — Occupations topic",
+   words:[
+     {w:"doctor",e:"👨‍⚕️",s:"A doctor helps sick people.",ex:"The doctor gave me medicine."},
+     {w:"police officer",e:"👮",s:"A police officer keeps people safe.",ex:"The police officer directed the traffic."},
+     {w:"farmer",e:"👨‍🌾",s:"A farmer grows food.",ex:"The farmer feeds the animals every morning."},
+     {w:"chef",e:"👨‍🍳",s:"A chef cooks food in a restaurant.",ex:"The chef made a delicious pizza."},
+     {w:"engineer",e:"👷",s:"An engineer designs and builds things.",ex:"The engineer fixed the bridge."},
+     {w:"artist",e:"🧑‍🎨",s:"An artist creates paintings and drawings.",ex:"The artist drew a beautiful picture."},
+   ],quizTypes:["picture-to-word","sentence-gap","true-false"]},
+  {id:"u16",level:"flyers",unit:"Unit 16",title:"Around Town",icon:"🏙️",color:"plum",
+   camb:"Cambridge A2 Flyers — Places & directions topic",
+   words:[
+     {w:"hospital",e:"🏥",s:"A hospital is where doctors help sick people.",ex:"She went to hospital after the accident."},
+     {w:"supermarket",e:"🛒",s:"A supermarket is a large shop.",ex:"We buy food at the supermarket."},
+     {w:"library",e:"📚",s:"A library has many books to read.",ex:"I borrowed three books from the library."},
+     {w:"restaurant",e:"🍽️",s:"A restaurant is where you buy and eat food.",ex:"We ate at a new restaurant last Friday."},
+     {w:"park",e:"🌳",s:"A park is a green space to relax.",ex:"The children played in the park."},
+     {w:"museum",e:"🏛️",s:"A museum has interesting things to see.",ex:"We saw dinosaurs at the museum."},
+   ],quizTypes:["picture-to-word","sentence-gap","true-false"]},
 ];
+
+/* colour map */
+const CM={sky:{bg:"var(--sky-bg)",bd:"var(--sky-bd)",tx:"var(--sky-tx)",md:"var(--sky-md)"},rose:{bg:"var(--rose-bg)",bd:"var(--rose-bd)",tx:"var(--rose-tx)",md:"var(--rose-md)"},leaf:{bg:"var(--green-bg)",bd:"var(--green-bd)",tx:"var(--green-tx)",md:"var(--green-md)"},plum:{bg:"var(--plum-bg)",bd:"var(--plum-bd)",tx:"var(--plum-tx)",md:"var(--plum-md)"},coral:{bg:"var(--coral-bg)",bd:"var(--coral-bd)",tx:"var(--coral-tx)",md:"var(--coral-md)"},gold:{bg:"var(--gold-bg)",bd:"var(--gold-bd)",tx:"var(--gold-tx)",md:"var(--gold-md)"},teal:{bg:"var(--teal-bg)",bd:"var(--teal-bd)",tx:"var(--teal-tx)",md:"var(--teal-md)"},sun:{bg:"var(--gold-bg)",bd:"var(--gold-bd)",tx:"var(--gold-tx)",md:"var(--gold-md)"}};
 
 const REWARDS=[
-  {id:"r01",icon:"⭐",name:"Gold star certificate",cost:50,desc:"You earned a special star! Show your parent."},
+  {id:"r01",icon:"🌟",name:"Gold star certificate",cost:50,desc:"Special star for great English learning!"},
   {id:"r02",icon:"📱",name:"30 mins screen time",cost:80,desc:"30 extra minutes of your favourite show or game"},
-  {id:"r03",icon:"🍫",name:"Chocolate treat",cost:100,desc:"Ask a parent for a special treat — you earned it!"},
-  {id:"r04",icon:"🎬",name:"Movie night",cost:200,desc:"Pick the movie! Family movie night, your choice."},
-  {id:"r05",icon:"🎮",name:"New game",cost:400,desc:"Choose a new game or app — you worked hard!"},
+  {id:"r03",icon:"🍫",name:"Chocolate treat",cost:100,desc:"You earned a sweet reward — ask a parent!"},
+  {id:"r04",icon:"📚",name:"Choose a new book",cost:150,desc:"Pick any book you like to read"},
+  {id:"r05",icon:"🎬",name:"Movie night",cost:250,desc:"Family movie night — you pick the film!"},
 ];
 
-const GRADES=["1","2","3","4","5","6"];
-const CMAP={sky:{bg:"var(--sky-bg)",bd:"var(--sky-bd)",tx:"var(--sky-tx)",md:"var(--sky-md)"},rose:{bg:"var(--rose-bg)",bd:"var(--rose-bd)",tx:"var(--rose-tx)",md:"var(--rose-md)"},leaf:{bg:"var(--leaf-bg)",bd:"var(--leaf-bd)",tx:"var(--leaf-tx)",md:"var(--leaf-md)"},coral:{bg:"var(--coral-bg)",bd:"var(--coral-bd)",tx:"var(--coral-tx)",md:"var(--coral-md)"},plum:{bg:"var(--plum-bg)",bd:"var(--plum-bd)",tx:"var(--plum-tx)",md:"var(--plum-md)"},sun:{bg:"var(--sun-bg)",bd:"var(--sun-bd)",tx:"var(--sun-tx)",md:"var(--sun-md)"}};
+const LEVEL_UNITS={starters:["u01","u02","u03","u04","u05","u06"],movers:["u07","u08","u09","u10","u11","u12"],flyers:["u13","u14","u15","u16"]};
 
-/* ══════════ STORAGE ══════════ */
-const KK="es_key",KP="es_prog",KL="es_log",KU="es_user";
+/* ══ STORAGE ══ */
+const KK="es2_key",KP="es2_prog",KL="es2_log",KU="es2_user";
 const getKey=()=>{try{return localStorage.getItem(KK)||"";}catch{return "";}};
 const storeKey=k=>{try{localStorage.setItem(KK,k.trim());}catch{}};
 const getUser=()=>{try{return JSON.parse(localStorage.getItem(KU)||"null");}catch{return null;}};
@@ -370,21 +464,21 @@ function getProgress(){try{const p=JSON.parse(localStorage.getItem(KP)||"null");
 function saveProgress(p){try{localStorage.setItem(KP,JSON.stringify(p));}catch{}}
 function getLog(){try{return JSON.parse(localStorage.getItem(KL)||"[]");}catch{return[];}}
 function saveLog(l){try{localStorage.setItem(KL,JSON.stringify(l.slice(-200)));}catch{}}
-const nowStr=()=>new Date().toLocaleString("en-CA",{day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"});
+const nowStr=()=>new Date().toLocaleString("en-GB",{day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"});
 const todayStr=()=>new Date().toISOString().slice(0,10);
 function daysAgo(n){const d=new Date();d.setDate(d.getDate()-n);return d.toISOString().slice(0,10);}
 
 function seedProgress(){
-  const p={tokens:35,streak:2,streakDate:daysAgo(0),completed:{l01:{score:5,tokens:10,date:daysAgo(3),minutes:5},l02:{score:4,tokens:10,date:daysAgo(2),minutes:5},l03:{score:3,tokens:10,date:daysAgo(1),minutes:6}},weakAreas:["colours"],strongConcept:"numbers",totalMinutes:16,conceptScores:{numbers:100,colours:60,animals:60},redeemed:[]};
+  const p={tokens:30,streak:2,streakDate:daysAgo(0),completed:{u01:{score:5,tokens:12,date:daysAgo(3)},u02:{score:4,tokens:10,date:daysAgo(2)},u03:{score:3,tokens:10,date:daysAgo(1)}},weakAreas:["Colours"],strongConcept:"Animals",totalMinutes:18,conceptScores:{Animals:100,Colours:60,"Numbers 1–20":60},redeemed:[]};
   saveProgress(p);
-  saveLog([{ts:new Date(Date.now()-3*86400000).toLocaleString("en-CA"),lesson:"Numbers 1–10",score:5,tokens:10,date:daysAgo(3)},{ts:new Date(Date.now()-2*86400000).toLocaleString("en-CA"),lesson:"Colours",score:4,tokens:10,date:daysAgo(2)},{ts:new Date(Date.now()-86400000).toLocaleString("en-CA"),lesson:"Animals",score:3,tokens:10,date:daysAgo(1)}]);
+  saveLog([{ts:new Date(Date.now()-3*86400000).toLocaleString("en-GB"),unit:"Animals",score:5,tokens:12,date:daysAgo(3)},{ts:new Date(Date.now()-2*86400000).toLocaleString("en-GB"),unit:"Colours",score:4,tokens:10,date:daysAgo(2)},{ts:new Date(Date.now()-86400000).toLocaleString("en-GB"),unit:"Numbers 1–20",score:3,tokens:10,date:daysAgo(1)}]);
   return p;
 }
 
-/* ══════════ STATE ══════════ */
-let S={lesson:null,wordIdx:0,quizIdx:0,quizAnswers:[],wrongConcepts:{},setupLang:"other",setupGrade:"1",sLang:"other",sGrade:"1",tab:"overview",reportText:""};
+/* ══ STATE ══ */
+let S={lesson:null,wordIdx:0,quizIdx:0,quizAnswers:[],wrongConcepts:{},setupLevel:"starters",sLevel:"starters",tab:"overview",reportText:"",quizQuestion:null};
 
-/* ══════════ NAV ══════════ */
+/* ══ NAV ══ */
 function go(id){
   document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
   const s=document.getElementById(id);if(!s)return;
@@ -397,7 +491,7 @@ function go(id){
   if(id==="s-settings")initSettings();
 }
 
-/* ══════════ WELCOME ══════════ */
+/* ══ WELCOME ══ */
 function initWelcome(){
   const u=getUser();
   const cb=document.getElementById("continue-btn");
@@ -405,48 +499,43 @@ function initWelcome(){
   else cb.style.display="none";
 }
 
-/* ══════════ SETUP ══════════ */
+/* ══ SETUP ══ */
 function initSetup(){
-  S.setupLang="other";S.setupGrade="1";
-  renderLangGrid("lang-grid","setup");
-  renderGradeGrid("grade-grid","setup");
+  S.setupLevel="starters";
+  renderLevelGrid("level-grid","setup");
   const u=getUser();
-  if(u){document.getElementById("setup-name").value=u.name||"";document.getElementById("setup-parent").value=u.parentName||"";document.getElementById("setup-email").value=u.email||"";if(u.lang)S.setupLang=u.lang;if(u.grade)S.setupGrade=u.grade;renderLangGrid("lang-grid","setup");renderGradeGrid("grade-grid","setup");}
+  if(u){document.getElementById("setup-name").value=u.name||"";document.getElementById("setup-parent").value=u.parentName||"";document.getElementById("setup-email").value=u.email||"";if(u.level){S.setupLevel=u.level;renderLevelGrid("level-grid","setup");}}
   const k=getKey();if(k)document.getElementById("setup-key").value=k;
 }
-function renderLangGrid(id,pfx){
-  document.getElementById(id).innerHTML=LANGS.map(l=>`<button class="lang-btn${S[pfx+"Lang"]===l.code?" selected":""}" onclick="selectLang('${pfx}','${l.code}','${id}')"><span style="font-size:20px">${l.flag}</span><span class="lang-name">${l.native}</span></button>`).join("");
+function renderLevelGrid(id,pfx){
+  document.getElementById(id).innerHTML=CAMBRIDGE_LEVELS.map(l=>`<button class="grade-btn${S[pfx+"Level"]===l.id?" selected":""}" onclick="selectLevel('${pfx}','${l.id}','${id}')" style="padding:12px 8px;border-radius:12px"><div style="font-size:22px;margin-bottom:4px">${l.icon}</div><div style="font-size:11px;font-weight:700;line-height:1.3">${l.label}</div><div style="font-size:10px;opacity:.7;margin-top:2px">${l.desc}</div></button>`).join("");
 }
-function renderGradeGrid(id,pfx){
-  document.getElementById(id).innerHTML=GRADES.map(g=>`<button class="grade-btn${S[pfx+"Grade"]===g?" selected":""}" onclick="selectGrade('${pfx}','${g}','${id}')">${g}</button>`).join("");
-}
-function selectLang(pfx,code,id){S[pfx+"Lang"]=code;renderLangGrid(id,pfx);}
-function selectGrade(pfx,g,id){S[pfx+"Grade"]=g;renderGradeGrid(id,pfx);}
+function selectLevel(pfx,id2,gridId){S[pfx+"Level"]=id2;renderLevelGrid(gridId,pfx);}
 
 function saveSetup(){
   const name=document.getElementById("setup-name").value.trim();
-  if(!name){alert("Please enter a name! 😊");return;}
-  const u={name,lang:S.setupLang,grade:S.setupGrade,parentName:document.getElementById("setup-parent").value.trim(),email:document.getElementById("setup-email").value.trim()};
+  if(!name){alert("Please enter the student's name!");return;}
+  const u={name,level:S.setupLevel,parentName:document.getElementById("setup-parent").value.trim(),email:document.getElementById("setup-email").value.trim()};
   saveUser(u);
   const k=document.getElementById("setup-key").value.trim();
   if(k.startsWith("sk-"))storeKey(k);
   go("s-student");
 }
 
-/* ══════════ SETTINGS ══════════ */
+/* ══ SETTINGS ══ */
 function initSettings(){
   const u=getUser()||{};
   document.getElementById("s-name").value=u.name||"";
   document.getElementById("s-parent").value=u.parentName||"";
   document.getElementById("s-email").value=u.email||"";
   document.getElementById("s-key").value=getKey();
-  S.sLang=u.lang||"other";S.sGrade=u.grade||"1";
-  renderLangGrid("s-lang-grid","s");renderGradeGrid("s-grade-grid","s");
+  S.sLevel=u.level||"starters";
+  renderLevelGrid("s-level-grid","s");
 }
 function saveSettings(){
   const name=document.getElementById("s-name").value.trim();
   if(!name){alert("Please enter a name.");return;}
-  saveUser({name,lang:S.sLang,grade:S.sGrade,parentName:document.getElementById("s-parent").value.trim(),email:document.getElementById("s-email").value.trim()});
+  saveUser({name,level:S.sLevel,parentName:document.getElementById("s-parent").value.trim(),email:document.getElementById("s-email").value.trim()});
   const k=document.getElementById("s-key").value.trim();if(k.startsWith("sk-"))storeKey(k);
   go("s-parent");
 }
@@ -456,54 +545,85 @@ function resetProgress(){
   seedProgress();go("s-parent");
 }
 
-/* ══════════ STUDENT HOME ══════════ */
-function getNative(word){
-  const u=getUser();const lang=(u?.lang)||"other";
-  return word.native?.[lang]||word.native?.other||word.word;
-}
+/* ══ STUDENT HOME ══ */
 function renderStudentHome(){
-  const u=getUser()||{name:"Learner",grade:"1"};
+  const u=getUser()||{name:"Learner",level:"starters"};
   const p=getProgress();
-  document.getElementById("student-greeting").textContent=`${t("hello")} ${u.name}! 👋`;
-  document.getElementById("student-meta").textContent=`Grade ${u.grade} · English Beginner`;
+  const lvl=CAMBRIDGE_LEVELS.find(l=>l.id===u.level)||CAMBRIDGE_LEVELS[0];
+  document.getElementById("student-greeting").textContent=`Hello, ${u.name}! 👋`;
+  document.getElementById("student-meta").textContent=`Cambridge ${lvl.label}`;
   document.getElementById("token-balance").textContent=p.tokens;
   const streak=p.streak||0;
-  document.getElementById("streak-bar").innerHTML=streak>=2?`<div style="display:flex;align-items:center;gap:8px;background:var(--sun-bg);border:1px solid var(--sun-bd);border-radius:10px;padding:8px 12px"><span class="streak-flame">🔥</span><span style="font-size:13px;font-weight:600;color:var(--sun-tx)">${streak} days in a row! ${t("goodjob")}</span></div>`:"";
+  document.getElementById("streak-bar").innerHTML=streak>=2?`<div style="display:flex;align-items:center;gap:8px;background:var(--gold-bg);border:1px solid var(--gold-bd);border-radius:10px;padding:8px 12px"><span class="streak-flame">🔥</span><span style="font-size:13px;font-weight:600;color:var(--gold-tx)">${streak} days in a row! Well done!</span></div>`:"";
+
+  const myUnits=LEVEL_UNITS[u.level]||LEVEL_UNITS.starters;
+  const allUnits=UNITS.filter(u2=>myUnits.includes(u2.id));
   const completedIds=new Set(Object.keys(p.completed||{}));
-  const total=LESSONS.length,done=completedIds.size,pct=Math.round(done/total*100);
-  document.getElementById("level-progress").innerHTML=`<div style="background:var(--bg2);border-radius:10px;padding:10px 12px;border:0.5px solid var(--bd)"><div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:13px;font-weight:600;color:var(--tx)">Progress</span><span style="font-size:13px;font-weight:700;color:var(--sky-md)">${done} / ${total} lessons</span></div><div class="progress-bar" style="margin:0"><div class="progress-fill" style="width:${pct}%"></div></div></div>`;
+  const total=allUnits.length,done=completedIds.size,pct=Math.round(done/total*100);
+  document.getElementById("level-progress-bar").innerHTML=`<div style="background:var(--bg2);border-radius:10px;padding:10px 12px;border:0.5px solid var(--bd)"><div style="display:flex;justify-content:space-between;margin-bottom:5px"><span style="font-size:13px;font-weight:600">${lvl.label} progress</span><span style="font-size:13px;font-weight:700;color:var(--sky-md)">${done} / ${total}</span></div><div class="progress-bar" style="margin:0"><div class="progress-fill" style="width:${pct}%"></div></div></div>`;
+
   const weakSet=new Set(p.weakAreas||[]);
-  const missions=LESSONS.filter(l=>weakSet.has(l.concept)&&!completedIds.has(l.id)).slice(0,2);
-  const allMissions=missions.length>0?missions:LESSONS.filter(l=>!completedIds.has(l.id)).slice(0,2);
-  document.getElementById("daily-missions").innerHTML=allMissions.map(l=>{const c=CMAP[l.color];return`<div class="lesson-card" style="background:var(--bg);border-color:${c.bd};margin-bottom:8px" onclick="openLesson('${l.id}')"><div style="width:44px;height:44px;border-radius:12px;background:${c.bg};display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0">${l.icon}</div><div style="flex:1"><p style="font-size:14px;font-weight:600;color:var(--tx);margin:0 0 2px">${l.title}</p><p style="font-size:12px;color:${c.md};margin:0">⭐ ${l.tokens} stars · ${l.minutes} min</p></div><span style="font-size:20px">→</span></div>`;}).join("");
-  const incomplete=LESSONS.filter(l=>!completedIds.has(l.id));
-  const complete=LESSONS.filter(l=>completedIds.has(l.id));
-  document.getElementById("all-lessons-header").textContent=incomplete.length>0?`All lessons (${incomplete.length} to go)`:`🎉 All done! Amazing!`;
-  document.getElementById("lesson-list").innerHTML=[...incomplete,...complete].map(l=>{const c=CMAP[l.color];const done=completedIds.has(l.id);const prog=p.completed[l.id];const lv=l.level===1?"🌱 Starter":l.level===2?"🌿 Growing":"🌟 Level 3";return`<div class="lesson-card ${done?"done":""}" onclick="openLesson('${l.id}')"><div style="width:44px;height:44px;border-radius:12px;background:${done?"var(--leaf-bg)":c.bg};display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0">${done?"✅":l.icon}</div><div style="flex:1"><p style="font-size:14px;font-weight:600;color:var(--tx);margin:0 0 2px">${l.title}</p><p style="font-size:12px;color:${done?"var(--leaf-md)":c.md};margin:0">${done?`Score: ${prog.score}/5 · ⭐${prog.tokens}`:lv+" · ⭐"+l.tokens}</p></div><span style="font-size:18px;color:var(--tx3)">${done?"✓":"→"}</span></div>`;}).join("");
+  const nextWeak=allUnits.find(u2=>weakSet.has(u2.title)&&!completedIds.has(u2.id));
+  const nextNew=allUnits.find(u2=>!completedIds.has(u2.id));
+  const mission=nextWeak||nextNew;
+  if(mission){
+    const c=CM[mission.color];
+    document.getElementById("daily-missions").innerHTML=`<div class="lesson-card" style="background:var(--bg);border-color:${c.bd};margin-bottom:0" onclick="openLesson('${mission.id}')"><div style="width:44px;height:44px;border-radius:12px;background:${c.bg};display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0">${mission.icon}</div><div style="flex:1"><p style="font-size:14px;font-weight:700;color:var(--tx);margin:0 0 2px">${mission.title}</p><p style="font-size:12px;color:${c.md};margin:0">${mission.unit} · ${mission.words.length} words</p></div><span style="font-size:20px">→</span></div>`;
+  } else {
+    document.getElementById("daily-missions").innerHTML=`<p style="font-size:13px;color:var(--sky-md)">🎉 All units complete! Amazing work!</p>`;
+  }
+
+  document.getElementById("all-header").textContent=`All units — ${lvl.label}`;
+  document.getElementById("lesson-list").innerHTML=allUnits.map(u2=>{
+    const c=CM[u2.color];const isDone=completedIds.has(u2.id);const prog=p.completed[u2.id];
+    return`<div class="lesson-card ${isDone?"done":""}" onclick="openLesson('${u2.id}')">
+      <div style="width:44px;height:44px;border-radius:12px;background:${isDone?"var(--green-bg)":c.bg};display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0">${isDone?"✅":u2.icon}</div>
+      <div style="flex:1">
+        <p style="font-size:12px;color:var(--tx3);margin:0 0 1px">${u2.unit}</p>
+        <p style="font-size:14px;font-weight:700;color:var(--tx);margin:0 0 2px">${u2.title}</p>
+        <p style="font-size:12px;color:${isDone?"var(--green-md)":c.md};margin:0">${isDone?`Score: ${prog.score}/5 · ⭐${prog.tokens}`:"⭐ "+UNITS.find(x=>x.id===u2.id)?.words.length+" words"}</p>
+      </div>
+      <span style="font-size:18px;color:var(--tx3)">${isDone?"✓":"→"}</span>
+    </div>`;
+  }).join("");
 }
 
-/* ══════════ LESSON FLOW ══════════ */
+/* ══ LESSON FLOW ══ */
 function openLesson(id){
-  S.lesson=LESSONS.find(l=>l.id===id);
-  const c=CMAP[S.lesson.color];
+  S.lesson=UNITS.find(u=>u.id===id);
+  const c=CM[S.lesson.color];
   document.getElementById("lesson-intro-card").style.background=c.bg;
   document.getElementById("lesson-intro-card").style.borderColor=c.bd;
-  document.getElementById("lesson-intro-card").innerHTML=`<div style="font-size:56px;margin-bottom:10px">${S.lesson.icon}</div><p style="font-size:24px;font-weight:800;color:${c.tx};margin-bottom:8px">${S.lesson.title}</p><p style="font-size:15px;color:${c.md};margin-bottom:14px">Learn ${S.lesson.words.length} new words! 🌟</p><div style="display:flex;justify-content:center;gap:14px;font-size:13px;color:${c.md}"><span>⏱ ${S.lesson.minutes} min</span><span>⭐ ${S.lesson.tokens} stars</span><span>📝 ${S.lesson.words.length} words</span></div>`;
+  document.getElementById("lesson-intro-card").innerHTML=`
+    <span class="cambridge-badge" style="margin-bottom:10px;display:inline-flex">${S.lesson.camb}</span>
+    <div style="font-size:52px;margin:8px 0 10px">${S.lesson.icon}</div>
+    <p style="font-size:22px;font-weight:800;color:${c.tx};margin-bottom:4px">${S.lesson.title}</p>
+    <p style="font-size:13px;color:${c.md};margin-bottom:14px">${S.lesson.unit}</p>
+    <div style="display:flex;justify-content:center;gap:16px;font-size:13px;color:${c.md}">
+      <span>📝 ${S.lesson.words.length} words</span>
+      <span>🧠 Quiz after</span>
+      <span>⭐ Up to ${S.lesson.words.length+5} stars</span>
+    </div>`;
   go("s-lesson-intro");
 }
 
 function startLesson(){S.wordIdx=0;renderWordCard();go("s-wordcard");}
 
 function renderWordCard(){
-  const l=S.lesson;const word=l.words[S.wordIdx];const c=CMAP[l.color];
+  const l=S.lesson,word=l.words[S.wordIdx],c=CM[l.color];
   const pct=Math.round(((S.wordIdx+1)/l.words.length)*100);
   document.getElementById("word-progress").style.width=pct+"%";
   document.getElementById("word-counter").textContent=`${S.wordIdx+1} / ${l.words.length}`;
+  document.getElementById("wordcard-unit-label").textContent=l.unit+" · "+l.title;
   document.getElementById("wordcard-content").innerHTML=`
     <div style="background:${c.bg};border:2px solid ${c.bd};border-radius:22px;padding:24px 20px 20px;margin-bottom:16px">
-      <span style="font-size:88px;display:block;text-align:center;margin-bottom:10px;line-height:1">${word.emoji}</span>
-      <p style="font-size:38px;font-weight:800;color:${c.tx};text-align:center;margin-bottom:6px">${word.word}</p>
-      <p style="font-size:20px;color:${c.md};text-align:center;margin-bottom:0">${getNative(word)}</p>
+      <span style="font-size:84px;display:block;text-align:center;margin-bottom:10px;line-height:1">${word.e}</span>
+      <p style="font-size:36px;font-weight:800;color:${c.tx};text-align:center;margin-bottom:6px">${word.w}</p>
+      <p style="font-size:15px;color:${c.md};text-align:center;margin-bottom:10px;font-style:italic">"${word.s}"</p>
+      <div style="background:rgba(255,255,255,.6);border-radius:10px;padding:10px 12px;border:0.5px solid ${c.bd}">
+        <p style="font-size:12px;color:${c.md};font-weight:600;margin-bottom:2px">Example sentence:</p>
+        <p style="font-size:14px;color:${c.tx};font-weight:600">"${word.ex}"</p>
+      </div>
     </div>`;
   document.getElementById("word-next").textContent=S.wordIdx===l.words.length-1?"Take the quiz! 🧠":"Next word →";
 }
@@ -513,90 +633,110 @@ function nextWord(){
   else{S.quizIdx=0;S.quizAnswers=[];S.wrongConcepts={};renderQuiz();go("s-quiz");}
 }
 
-/* ══════════ QUIZ ══════════ */
-function buildQuizQuestion(lesson,idx){
-  const allWords=lesson.words;
-  const target=allWords[idx%allWords.length];
-  const others=allWords.filter((_,i)=>i!==idx%allWords.length);
-  const shuffled=[...others].sort(()=>Math.random()-.5).slice(0,3);
-  const options=[target,...shuffled].sort(()=>Math.random()-.5);
-  return{target,options,correctIdx:options.findIndex(o=>o.word===target.word)};
+/* ══ QUIZ ENGINE ══ */
+function buildQuestion(lesson,idx){
+  const words=lesson.words;
+  const target=words[idx%words.length];
+  const distractors=[...words].filter(w=>w.w!==target.w).sort(()=>Math.random()-.5).slice(0,3);
+  const opts=[target,...distractors].sort(()=>Math.random()-.5);
+  const types=lesson.quizTypes||["picture-to-word"];
+  const type=types[idx%types.length];
+  return{target,opts,type};
 }
 
 function renderQuiz(){
-  const l=S.lesson;const qNum=S.quizIdx;
-  const{target,options}=buildQuizQuestion(l,qNum);
-  const pct=Math.round(((qNum+1)/5)*100);
+  const l=S.lesson,{target,opts,type}=buildQuestion(l,S.quizIdx);
+  S.quizQuestion={target,opts,type};
+  const pct=Math.round(((S.quizIdx+1)/5)*100);
   document.getElementById("quiz-progress").style.width=pct+"%";
-  document.getElementById("quiz-counter").textContent=`${qNum+1} / 5`;
-  document.getElementById("quiz-instruction").textContent="Find this word:";
-  document.getElementById("quiz-native").textContent=`${getNative(target)} = ?`;
-  document.getElementById("quiz-area").innerHTML=`<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">${options.map((o,i)=>`<button class="tap-card" id="qopt-${i}" onclick="answerQuiz(${i},${options.findIndex(x=>x.word===target.word)})"><span class="tap-emoji">${o.emoji}</span><span class="tap-word">${o.word}</span></button>`).join("")}</div>`;
+  document.getElementById("quiz-counter").textContent=`${S.quizIdx+1} / 5`;
+  let html="";
+  if(type==="picture-to-word"){
+    html=`<div style="text-align:center;margin-bottom:16px"><span style="font-size:72px">${target.e}</span><p style="font-size:14px;color:var(--tx2);margin-top:6px">What is this?</p></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">${opts.map((o,i)=>`<button class="tap-card" id="qo-${i}" onclick="answerQuiz(${i},${opts.findIndex(x=>x.w===target.w)})"><span style="font-size:18px;font-weight:700;color:var(--tx)">${o.w}</span></button>`).join("")}</div>`;
+  } else if(type==="word-to-picture"){
+    html=`<div style="text-align:center;margin-bottom:16px"><p style="font-size:28px;font-weight:800;color:var(--sky-tx)">${target.w}</p><p style="font-size:14px;color:var(--tx2);margin-top:4px">Find the picture</p></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">${opts.map((o,i)=>`<button class="tap-card" id="qo-${i}" onclick="answerQuiz(${i},${opts.findIndex(x=>x.w===target.w)})"><span style="font-size:44px;margin-bottom:4px">${o.e}</span></button>`).join("")}</div>`;
+  } else if(type==="sentence-gap"){
+    const gapped=target.ex.replace(new RegExp(`\\b${target.w}\\b`,"i"),"______");
+    html=`<p style="font-size:16px;font-weight:700;color:var(--tx);margin-bottom:8px">Fill in the gap:</p>
+    <div style="background:var(--sky-bg);border:1.5px solid var(--sky-bd);border-radius:12px;padding:14px;margin-bottom:16px"><p style="font-size:16px;color:var(--sky-tx);font-style:italic">"${gapped}"</p></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">${opts.map((o,i)=>`<button class="tap-card" id="qo-${i}" onclick="answerQuiz(${i},${opts.findIndex(x=>x.w===target.w)})"><span style="font-size:15px;font-weight:700;color:var(--tx)">${o.w}</span></button>`).join("")}</div>`;
+  } else if(type==="true-false"){
+    const isTrue=Math.random()>.5;
+    const shownWord=isTrue?target.w:opts.find(o=>o.w!==target.w)?.w||opts[1]?.w;
+    S.quizQuestion.trueFalseCorrect=isTrue?0:1;
+    html=`<p style="font-size:16px;font-weight:700;color:var(--tx);margin-bottom:8px">True or False?</p>
+    <div style="text-align:center;margin-bottom:16px"><span style="font-size:60px">${target.e}</span><p style="font-size:20px;font-weight:800;color:var(--sky-tx);margin-top:8px">This is: <span style="color:var(--plum)">${shownWord}</span></p></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><button class="tap-card" id="qo-0" onclick="answerQuiz(0,${S.quizQuestion.trueFalseCorrect})" style="background:var(--green-bg);border-color:var(--green-bd)"><span style="font-size:32px">✅</span><span style="font-size:14px;font-weight:700;color:var(--green-tx);margin-top:4px">True</span></button><button class="tap-card" id="qo-1" onclick="answerQuiz(1,${S.quizQuestion.trueFalseCorrect})" style="background:var(--rose-bg);border-color:var(--rose-bd)"><span style="font-size:32px">❌</span><span style="font-size:14px;font-weight:700;color:var(--rose-tx);margin-top:4px">False</span></button></div>`;
+  }
+  document.getElementById("quiz-content").innerHTML=html;
 }
 
 function answerQuiz(chosen,correct){
-  const correct_=chosen===correct;
-  S.quizAnswers.push(correct_);
-  const lesson=S.lesson;
-  const concept=lesson.concept;
-  if(!correct_)S.wrongConcepts[concept]=(S.wrongConcepts[concept]||0)+1;
+  const isCorrect=chosen===correct;
+  S.quizAnswers.push(isCorrect);
+  if(!isCorrect)S.wrongConcepts[S.lesson.title]=(S.wrongConcepts[S.lesson.title]||0)+1;
   document.querySelectorAll(".tap-card").forEach((b,i)=>{
     b.style.pointerEvents="none";
-    if(i===correct)b.classList.add("correct");
+    if(i===correct){b.classList.add("correct");b.innerHTML+="<span style='font-size:18px;margin-top:4px'>✅</span>";}
     else if(i===chosen)b.classList.add("wrong");
   });
-  const feedback=document.createElement("p");
-  feedback.style.cssText="text-align:center;font-size:18px;font-weight:700;margin-top:14px;animation:fadeUp .3s ease";
-  feedback.textContent=correct_?t("correct"):t("tryagain");
-  document.getElementById("quiz-area").appendChild(feedback);
+  const fb=document.createElement("p");
+  fb.style.cssText="text-align:center;font-size:18px;font-weight:700;margin-top:14px;animation:fadeUp .3s ease";
+  fb.textContent=isCorrect?"✅ Correct!":"❌ Not quite — the answer is highlighted above.";
+  document.getElementById("quiz-content").appendChild(fb);
   setTimeout(()=>{
     if(S.quizIdx<4){S.quizIdx++;renderQuiz();}
     else showResult();
-  },1100);
+  },1200);
 }
 
-/* ══════════ RESULT ══════════ */
+/* ══ RESULT ══ */
 function showResult(){
   const score=S.quizAnswers.filter(Boolean).length;
   const pct=Math.round(score/5*100);
   const p=getProgress();
   const alreadyDone=p.completed[S.lesson.id];
-  const tokens=alreadyDone?1:(S.lesson.tokens+(score===5?5:0));
+  const baseTokens=S.lesson.words.length;
+  const tokens=alreadyDone?1:(baseTokens+(score===5?5:0));
   p.tokens+=tokens;
-  p.completed[S.lesson.id]={score,tokens,date:todayStr(),minutes:S.lesson.minutes};
-  p.totalMinutes=(p.totalMinutes||0)+S.lesson.minutes;
+  p.completed[S.lesson.id]={score,tokens,date:todayStr(),minutes:6};
+  p.totalMinutes=(p.totalMinutes||0)+6;
   const cs=p.conceptScores||{};
-  const c=S.lesson.concept;
-  if(!correct_problem){
-    if(score<=2)cs[c]=Math.max(0,(cs[c]||60)-20);
-    else if(score>=4)cs[c]=Math.min(100,(cs[c]||60)+20);
-  }
+  if(score<=2)cs[S.lesson.title]=Math.max(0,(cs[S.lesson.title]||60)-20);
+  else if(score>=4)cs[S.lesson.title]=Math.min(100,(cs[S.lesson.title]||60)+20);
   p.conceptScores=cs;
   const weakConc=new Set(Object.entries(cs).filter(([,v])=>v<60).map(([k])=>k));
   Object.entries(S.wrongConcepts).filter(([,v])=>v>=2).forEach(([c])=>weakConc.add(c));
   p.weakAreas=[...weakConc];
-  const strongEntry=Object.entries(cs).sort((a,b)=>b[1]-a[1])[0];
-  if(strongEntry)p.strongConcept=strongEntry[0];
+  const strong=Object.entries(cs).sort((a,b)=>b[1]-a[1])[0];
+  if(strong)p.strongConcept=strong[0];
   const today=todayStr(),lastDate=p.streakDate||"";
   const yesterday=new Date();yesterday.setDate(yesterday.getDate()-1);
   if(lastDate!==today){p.streak=(lastDate===yesterday.toISOString().slice(0,10)?(p.streak||0)+1:1);p.streakDate=today;}
   saveProgress(p);
-  const log=getLog();log.push({ts:nowStr(),lesson:S.lesson.title,score,tokens,date:today});saveLog(log);
-  const msg=pct===100?`🏆 ${t("welldone")} Perfect!`:pct>=80?`⭐ ${t("goodjob")}`:pct>=60?"👍 Good! Keep practising!":"💪 Keep trying! You can do it!";
-  const col=CMAP[S.lesson.color];
-  document.getElementById("result-card").style.cssText=`border-radius:22px;padding:28px 22px;text-align:center;border:2px solid ${col.bd};margin-bottom:14px;background:${col.bg}`;
-  document.getElementById("result-card").innerHTML=`<div style="font-size:56px;margin-bottom:10px">${pct===100?"🏆":pct>=80?"⭐":"💪"}</div><p style="font-size:26px;font-weight:800;color:${col.tx};margin-bottom:8px">${score} / 5</p><div class="progress-bar"><div class="progress-fill" style="width:${pct}%;background:${pct>=80?"var(--leaf)":"var(--sky)"}"></div></div><p style="font-size:17px;color:${col.md};margin-top:12px;line-height:1.5">${msg}</p>`;
-  document.getElementById("result-tokens").innerHTML=`<p style="font-size:14px;color:var(--tx2);margin-bottom:8px">Stars earned ⭐</p><div class="token-display" style="font-size:20px">⭐ +${tokens}</div>${score===5&&!alreadyDone?`<p style="font-size:12px;color:var(--sun-md);margin-top:6px">🌟 Perfect score bonus: +5 stars!</p>`:""}`;
+  const log=getLog();log.push({ts:nowStr(),unit:S.lesson.title,level:S.lesson.level,score,tokens,date:today});saveLog(log);
+  const msg=pct===100?"🏆 Perfect! Excellent English!":pct>=80?"⭐ Very good! Keep it up!":pct>=60?"👍 Good try! Practise this topic again.":"💪 Keep going — English takes practice!";
+  const camb=S.lesson.camb;
+  const c=CM[S.lesson.color];
+  document.getElementById("result-card").style.cssText=`border-radius:22px;padding:28px 22px;text-align:center;border:2px solid ${c.bd};margin-bottom:14px;background:${c.bg}`;
+  document.getElementById("result-card").innerHTML=`<span class="cambridge-badge" style="margin-bottom:10px;display:inline-flex">${camb}</span><div style="font-size:52px;margin:8px 0 10px">${pct===100?"🏆":pct>=80?"⭐":"💪"}</div><p style="font-size:24px;font-weight:800;color:${c.tx};margin-bottom:8px">${score} / 5</p><div class="progress-bar"><div class="progress-fill" style="width:${pct}%;background:${pct>=80?"var(--green)":"var(--sky)"}"></div></div><p style="font-size:16px;color:${c.md};margin-top:12px;line-height:1.5">${msg}</p>`;
+  document.getElementById("result-tokens").innerHTML=`<p style="font-size:14px;color:var(--tx2);margin-bottom:8px">Stars earned ⭐</p><div class="token-display" style="font-size:20px">⭐ +${tokens}</div>${score===5&&!alreadyDone?`<p style="font-size:12px;color:var(--gold-md);margin-top:6px">🌟 Perfect score bonus: +5 extra stars!</p>`:""}`;
+  const nextLesson=UNITS.find(u=>!p.completed[u.id]&&u.level===S.lesson.level&&u.id!==S.lesson.id);
+  document.getElementById("result-next-word").innerHTML=nextLesson?`<div style="background:var(--sky-bg);border:0.5px solid var(--sky-bd);border-radius:12px;padding:11px 14px;display:flex;gap:10px;align-items:center;cursor:pointer" onclick="openLesson('${nextLesson.id}');go('s-lesson-intro')"><span style="font-size:22px">${nextLesson.icon}</span><div><p style="font-size:12px;color:var(--sky-md);margin:0 0 1px">Next lesson</p><p style="font-size:13px;font-weight:700;color:var(--sky-tx);margin:0">${nextLesson.title} →</p></div></div>`:"";
   go("s-result");
 }
-let correct_problem=false;
 
-/* ══════════ STUDENT REWARDS ══════════ */
+/* ══ STUDENT REWARDS ══ */
 function renderStudentRewards(){
   const p=getProgress();
   document.getElementById("reward-balance").textContent=p.tokens;
   const redeemed=new Set(p.redeemed||[]);
-  document.getElementById("rewards-list").innerHTML=REWARDS.map(r=>{const canAfford=p.tokens>=r.cost;const done=redeemed.has(r.id);return`<div class="reward-card" style="opacity:${done?.6:1}"><div style="font-size:36px">${r.icon}</div><div style="flex:1"><p style="font-size:15px;font-weight:700;color:var(--sun-tx);margin:0 0 2px">${r.name}</p><p style="font-size:12px;color:var(--sun-md);margin:0 0 6px">${r.desc}</p><span style="font-size:12px;font-weight:600;padding:3px 9px;border-radius:20px;background:var(--sun-bg);border:0.5px solid var(--sun-bd);color:var(--sun-tx)">⭐ ${r.cost}</span>${done?`<span style="font-size:12px;color:var(--leaf-md);font-weight:600;margin-left:8px">✅ Done</span>`:""}</div>${!done?`<button onclick="redeemReward('${r.id}')" style="padding:10px 14px;border-radius:10px;border:none;background:${canAfford?"var(--sky)":"var(--bg2)"};color:${canAfford?"#fff":"var(--tx3)"};font-size:13px;font-weight:700;cursor:${canAfford?"pointer":"not-allowed"};font-family:inherit;flex-shrink:0">${canAfford?"Redeem!":r.cost-p.tokens+" more"}</button>`:""}</div>`;}).join("");
+  document.getElementById("rewards-list").innerHTML=REWARDS.map(r=>{
+    const canAfford=p.tokens>=r.cost;const done=redeemed.has(r.id);
+    return`<div class="reward-card" style="opacity:${done?.6:1}"><div style="font-size:36px">${r.icon}</div><div style="flex:1"><p style="font-size:15px;font-weight:700;color:var(--gold-tx);margin:0 0 2px">${r.name}</p><p style="font-size:12px;color:var(--gold-md);margin:0 0 6px">${r.desc}</p><span style="font-size:12px;font-weight:600;padding:3px 9px;border-radius:20px;background:var(--gold-bg);border:0.5px solid var(--gold-bd);color:var(--gold-tx)">⭐ ${r.cost}</span>${done?`<span style="font-size:12px;color:var(--green-md);font-weight:600;margin-left:8px">✅ Claimed</span>`:""}</div>${!done?`<button onclick="redeemReward('${r.id}')" style="padding:10px 14px;border-radius:10px;border:none;background:${canAfford?"var(--sky)":"var(--bg2)"};color:${canAfford?"#fff":"var(--tx3)"};font-size:13px;font-weight:700;cursor:${canAfford?"pointer":"not-allowed"};font-family:inherit;flex-shrink:0">${canAfford?"Redeem!":r.cost-p.tokens+" more"}</button>`:""}</div>`;
+  }).join("");
 }
 function redeemReward(id){
   const r=REWARDS.find(x=>x.id===id);const p=getProgress();
@@ -607,196 +747,220 @@ function redeemReward(id){
   go("s-redeem");
 }
 
-/* ══════════ PARENT DASHBOARD ══════════ */
+/* ══ PARENT DASHBOARD ══ */
 let parentTab="overview";
-function switchTab(t2){parentTab=t2;["overview","week","rewards","report"].forEach(x=>{document.getElementById("tab-"+x).classList.toggle("active",x===t2);});renderParentTab();}
+function switchTab(t){parentTab=t;["overview","week","vocab","report"].forEach(x=>{document.getElementById("tab-"+x).classList.toggle("active",x===t);});renderParentTab();}
 function renderParent(){
-  const u=getUser()||{name:"Learner"};
-  document.getElementById("parent-meta").textContent=`${u.name} · Grade ${u.grade||1} · English Beginner · ${LANGS.find(l=>l.code===u.lang)?.name||""}`;
-  parentTab="overview";["overview","week","rewards","report"].forEach(t2=>document.getElementById("tab-"+t2).classList.toggle("active",t2==="overview"));
+  const u=getUser()||{name:"Learner",level:"starters"};
+  const lvl=CAMBRIDGE_LEVELS.find(l=>l.id===u.level)||CAMBRIDGE_LEVELS[0];
+  document.getElementById("parent-meta").textContent=`${u.name} · Cambridge ${lvl.label}`;
+  parentTab="overview";["overview","week","vocab","report"].forEach(t=>document.getElementById("tab-"+t).classList.toggle("active",t==="overview"));
   renderParentTab();
 }
 
 function renderParentTab(){
-  const p=getProgress(),log=getLog(),u=getUser()||{name:"Learner"};
-  const name=u.name||"Learner";const c=document.getElementById("parent-content");
+  const p=getProgress(),log=getLog(),u=getUser()||{name:"Learner",level:"starters"};
+  const name=u.name;const c=document.getElementById("parent-content");
+  const lvl=CAMBRIDGE_LEVELS.find(l=>l.id===u.level)||CAMBRIDGE_LEVELS[0];
+  const myUnits=LEVEL_UNITS[u.level]||LEVEL_UNITS.starters;
+  const allUnits=UNITS.filter(u2=>myUnits.includes(u2.id));
+  const completed=Object.keys(p.completed||{}).length;
+
   if(parentTab==="overview"){
-    const completed=Object.keys(p.completed||{}).length;
     const avgScore=completed>0?Math.round(Object.values(p.completed).reduce((a,l)=>a+l.score,0)/completed/5*100):0;
     const weekLog=log.filter(l=>l.date>=daysAgo(7));
     const weekStars=weekLog.reduce((a,l)=>a+(l.tokens||0),0);
-    const weakLabels=(p.weakAreas||[]).map(w=>LESSONS.find(l=>l.concept===w)?.title||w);
-    const strongLabel=p.strongConcept?LESSONS.find(l=>l.concept===p.strongConcept)?.title||p.strongConcept:"—";
-    const langName=LANGS.find(l=>l.code===u.lang)?.name||"";
+    const weakLabels=(p.weakAreas||[]).slice(0,3);
+    const strongLabel=p.strongConcept||"—";
     c.innerHTML=`
-      <div class="stat-grid">
-        ${[["⭐ Stars",p.tokens,"var(--sun-md)"],["📚 Lessons",completed,"var(--leaf-md)"],["⏱ Minutes",p.totalMinutes||0,"var(--sky-md)"],["📊 Avg score",avgScore+"%","var(--plum-md)"]].map(([l,v,col])=>`<div class="stat-card"><p class="label-sm">${l}</p><p style="font-size:22px;font-weight:800;color:${col};margin:0">${v}</p></div>`).join("")}
+      <div style="background:var(--sky-bg);border:1px solid var(--sky-bd);border-radius:12px;padding:12px 14px;margin-bottom:12px;display:flex;align-items:center;gap:10px">
+        <span style="font-size:24px">${lvl.icon}</span>
+        <div><p style="font-size:13px;font-weight:700;color:var(--sky-tx);margin:0 0 2px">Cambridge ${lvl.label}</p><p style="font-size:12px;color:var(--sky-md);margin:0">${completed} of ${allUnits.length} units complete</p></div>
       </div>
-      <div class="card" style="background:var(--sky-bg);border-color:var(--sky-bd);margin-bottom:12px">
-        <p class="label-sm" style="color:var(--sky-md);margin-bottom:6px">Student profile</p>
-        <p style="font-size:14px;color:var(--sky-tx);line-height:1.6">${name} speaks <strong>${langName}</strong> at home and is learning English at the <strong>Beginner</strong> level, Grade ${u.grade||1}.</p>
+      <div class="stat-grid">
+        ${[["⭐ Stars",p.tokens,"var(--gold-md)"],["✅ Units",completed,"var(--green-md)"],["⏱ Minutes",p.totalMinutes||0,"var(--sky-md)"],["📊 Avg score",avgScore+"%","var(--plum-md)"]].map(([l,v,col])=>`<div class="stat-card"><p class="label-sm">${l}</p><p style="font-size:22px;font-weight:800;color:${col};margin:0">${v}</p></div>`).join("")}
       </div>
       ${weakLabels.length>0?`<div class="card" style="margin-bottom:12px"><p class="label-sm" style="margin-bottom:8px">⚠️ Needs more practice</p>${weakLabels.map(w=>`<span class="weak-chip">📌 ${w}</span>`).join("")}</div>`:""}
-      <div class="card" style="margin-bottom:12px"><p class="label-sm" style="margin-bottom:8px">⭐ Best topic so far</p><span class="strong-chip">🏆 ${strongLabel}</span></div>
+      <div class="card" style="margin-bottom:12px"><p class="label-sm" style="margin-bottom:8px">⭐ Strongest topic</p><span class="strong-chip">🏆 ${strongLabel}</span></div>
       <div class="card" style="background:var(--plum-bg);border-color:var(--plum-bd);margin-bottom:12px">
-        <p class="label-sm" style="color:var(--plum-md);margin-bottom:10px">💡 Suggested parent actions</p>
-        ${weakLabels.length>0?`<p style="font-size:13px;color:var(--plum-tx);line-height:1.6;margin-bottom:8px">• Point to objects around the house and say the English word for <strong>${weakLabels[0]}</strong> together.</p>`:""}
-        <p style="font-size:13px;color:var(--plum-tx);line-height:1.6;margin-bottom:8px">• This week ${name} earned <strong>${weekStars} stars</strong>. Let them know how close they are to the next reward.</p>
-        <p style="font-size:13px;color:var(--plum-tx);line-height:1.6">• Play "What's this?" — point at things and ask ${name} the English word. Make it a game, not a test.</p>
+        <p class="label-sm" style="color:var(--plum-md);margin-bottom:10px">💡 Suggested activities</p>
+        ${weakLabels.length>0?`<p style="font-size:13px;color:var(--plum-tx);line-height:1.6;margin-bottom:8px">• Point to real objects and ask ${name} the English word for <strong>${weakLabels[0]}</strong>.</p>`:""}
+        <p style="font-size:13px;color:var(--plum-tx);line-height:1.6;margin-bottom:8px">• This week ${name} earned <strong>${weekStars} stars</strong>. Check how close they are to the next reward.</p>
+        <p style="font-size:13px;color:var(--plum-tx);line-height:1.6">• Use the example sentences from the lessons as conversation starters at home.</p>
       </div>
       <div class="card"><p class="label-sm" style="margin-bottom:10px">📋 Recent sessions</p>
         ${log.length===0?`<p style="font-size:13px;color:var(--tx3)">No sessions yet.</p>`:
-        [...log].reverse().slice(0,5).map((l,i,arr)=>`<div style="display:flex;gap:10px;align-items:center;${i<arr.length-1?"padding-bottom:10px;margin-bottom:10px;border-bottom:0.5px solid var(--bd)":""}"><div style="width:36px;height:36px;border-radius:10px;background:var(--sky-bg);border:0.5px solid var(--sky-bd);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">${LESSONS.find(x=>x.title===l.lesson)?.icon||"📖"}</div><div style="flex:1"><p style="font-size:13px;font-weight:600;color:var(--tx);margin:0 0 1px">${l.lesson}</p><p style="font-size:11px;color:var(--tx3);margin:0">${l.ts} · Score: ${l.score}/5</p></div><span style="font-size:12px;font-weight:600;padding:3px 8px;border-radius:20px;background:var(--sun-bg);border:0.5px solid var(--sun-bd);color:var(--sun-tx)">⭐ ${l.tokens}</span></div>`).join("")}
+        [...log].reverse().slice(0,5).map((l,i,arr)=>`<div style="display:flex;gap:10px;align-items:center;${i<arr.length-1?"padding-bottom:10px;margin-bottom:10px;border-bottom:0.5px solid var(--bd)":""}">
+          <div style="width:36px;height:36px;border-radius:10px;background:var(--sky-bg);border:0.5px solid var(--sky-bd);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">${UNITS.find(x=>x.title===l.unit)?.icon||"📖"}</div>
+          <div style="flex:1"><p style="font-size:13px;font-weight:600;color:var(--tx);margin:0 0 1px">${l.unit}</p><p style="font-size:11px;color:var(--tx3);margin:0">${l.ts} · Score: ${l.score}/5</p></div>
+          <span style="font-size:12px;font-weight:600;padding:3px 8px;border-radius:20px;background:var(--gold-bg);border:0.5px solid var(--gold-bd);color:var(--gold-tx)">⭐ ${l.tokens}</span>
+        </div>`).join("")}
       </div>`;
+
   } else if(parentTab==="week"){
     const days=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
     const today=new Date();const dow=(today.getDay()+6)%7;
     const weekDays=Array.from({length:7},(_,i)=>{const d=new Date(today);d.setDate(today.getDate()-(dow-i));return d.toISOString().slice(0,10);});
     const byDay={};log.forEach(l=>{if(l.date)(byDay[l.date]=byDay[l.date]||[]).push(l);});
     const weekLog=log.filter(l=>weekDays.includes(l.date));
-    c.innerHTML=`<div class="card"><p class="label-sm" style="margin-bottom:14px">Daily activity</p><div style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px">${weekDays.map((d,i)=>{const entries=byDay[d]||[];const isToday=d===todayStr();const emoji=entries.length===0?"⬜":entries.some(e=>e.score>=4)?"🌟":"📖";return`<div style="display:flex;flex-direction:column;align-items:center;gap:4px"><div style="width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;background:${isToday?"var(--sky-bg)":"transparent"};border:2px solid ${isToday?"var(--sky-bd)":"transparent"}">${emoji}</div><span style="font-size:9px;color:${isToday?"var(--sky-md)":"var(--tx3)"};text-transform:uppercase;letter-spacing:.04em">${days[i]}</span></div>`;}).join("")}</div><div style="display:flex;gap:12px;font-size:11px;color:var(--tx3);margin-top:10px;flex-wrap:wrap"><span>🌟 Great</span><span>📖 Lesson done</span><span>⬜ Rest day</span></div></div>
-    <div class="stat-grid">${[["Lessons",weekLog.length,"var(--plum-md)"],["Stars",weekLog.reduce((a,l)=>a+(l.tokens||0),0),"var(--sun-md)"],["Minutes",weekLog.length*5,"var(--sky-md)"],["Avg score",weekLog.length>0?Math.round(weekLog.reduce((a,l)=>a+l.score,0)/weekLog.length/5*100)+"%":"—","var(--leaf-md)"]].map(([l,v,col])=>`<div class="stat-card"><p class="label-sm">${l} this week</p><p style="font-size:18px;font-weight:800;color:${col};margin:0">${v}</p></div>`).join("")}</div>`;
-  } else if(parentTab==="rewards"){
-    c.innerHTML=`<p style="font-size:14px;color:var(--tx2);margin-bottom:14px;line-height:1.5">${name} can see and redeem these rewards in the student app.</p>
-      ${REWARDS.map(r=>{const done=(p.redeemed||[]).includes(r.id);return`<div class="reward-card"><div style="font-size:36px">${r.icon}</div><div style="flex:1"><p style="font-size:15px;font-weight:700;color:var(--sun-tx);margin:0 0 2px">${r.name}</p><p style="font-size:12px;color:var(--sun-md);margin:0 0 4px">${r.desc}</p><span style="font-size:12px;font-weight:600;padding:3px 9px;border-radius:20px;background:var(--sun-bg);border:0.5px solid var(--sun-bd);color:var(--sun-tx)">⭐ ${r.cost}</span>${done?`<span style="font-size:12px;color:var(--leaf-md);font-weight:600;margin-left:8px">✅ Claimed</span>`:""}</div></div>`;}).join("")}
-      <div style="background:var(--sky-bg);border:0.5px solid var(--sky-bd);border-radius:14px;padding:14px;margin-top:4px"><p style="font-size:13px;color:var(--sky-tx);line-height:1.6">💡 Small frequent rewards work best for language learners. Praise the effort, not just the score.</p></div>`;
+    c.innerHTML=`
+      <div class="card"><p class="label-sm" style="margin-bottom:14px">Daily activity this week</p>
+        <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px">
+          ${weekDays.map((d,i)=>{const entries=byDay[d]||[];const isToday=d===todayStr();const emoji=entries.length===0?"⬜":entries.some(e=>e.score>=4)?"🌟":"📖";return`<div style="display:flex;flex-direction:column;align-items:center;gap:4px"><div style="width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;background:${isToday?"var(--sky-bg)":"transparent"};border:2px solid ${isToday?"var(--sky-bd)":"transparent"}">${emoji}</div><span style="font-size:9px;color:${isToday?"var(--sky-md)":"var(--tx3)"};text-transform:uppercase;letter-spacing:.04em">${days[i]}</span></div>`;}).join("")}
+        </div>
+        <div style="display:flex;gap:12px;font-size:11px;color:var(--tx3);margin-top:10px;flex-wrap:wrap"><span>🌟 Score ≥ 4/5</span><span>📖 Completed</span><span>⬜ Rest day</span></div>
+      </div>
+      <div class="stat-grid">${[["Units",weekLog.length,"var(--plum-md)"],["Stars",weekLog.reduce((a,l)=>a+(l.tokens||0),0),"var(--gold-md)"],["Minutes",weekLog.length*6,"var(--sky-md)"],["Avg score",weekLog.length>0?Math.round(weekLog.reduce((a,l)=>a+l.score,0)/weekLog.length/5*100)+"%":"—","var(--green-md)"]].map(([l,v,col])=>`<div class="stat-card"><p class="label-sm">${l} this week</p><p style="font-size:18px;font-weight:800;color:${col};margin:0">${v}</p></div>`).join("")}</div>`;
+
+  } else if(parentTab==="vocab"){
+    const cs=p.conceptScores||{};
+    const allTopics=allUnits.map(u2=>({title:u2.title,icon:u2.icon,score:cs[u2.title]||0,done:!!p.completed[u2.id]}));
+    c.innerHTML=`
+      <p style="font-size:14px;color:var(--tx2);margin-bottom:14px;line-height:1.5">Vocabulary mastery across all ${lvl.label} topics.</p>
+      ${allTopics.map(t=>{
+        const pct=t.done?t.score:0;
+        const col=pct>=80?"var(--green)":pct>=50?"var(--gold)":"var(--tx3)";
+        return`<div class="card" style="padding:12px 14px;margin-bottom:8px"><div style="display:flex;align-items:center;gap:10px;margin-bottom:8px"><span style="font-size:20px">${t.icon}</span><span style="font-size:14px;font-weight:600;color:var(--tx);flex:1">${t.title}</span><span style="font-size:13px;font-weight:700;color:${col}">${t.done?pct+"%":"Not started"}</span></div>${t.done?`<div class="progress-bar" style="margin:0"><div class="progress-fill" style="width:${pct}%;background:${col}"></div></div>`:`<p style="font-size:12px;color:var(--tx3)">Complete this unit to track vocabulary mastery</p>`}</div>`;
+      }).join("")}`;
+
   } else if(parentTab==="report"){
     c.innerHTML=`<button class="btn" style="margin-bottom:14px" onclick="genReport()">✨ Generate AI report</button><div id="report-sections"></div><div id="share-section" style="display:none"></div>`;
   }
 }
 
-/* ══════════ AI REPORT ══════════ */
+/* ══ AI REPORT ══ */
 async function genReport(){
   const sec=document.getElementById("report-sections");
   const shareSec=document.getElementById("share-section");
   const key=getKey();const p=getProgress();const log=getLog();const u=getUser()||{name:"Learner"};
-  const name=u.name;const langName=LANGS.find(l=>l.code===u.lang)?.name||"unknown";
-  if(!key){sec.innerHTML=`<div class="card"><p style="font-size:14px;color:var(--tx2)">No API key. Tap ⚙️ to add it.</p></div>`;return;}
+  const name=u.name;
+  if(!key){sec.innerHTML=`<div class="card"><p style="font-size:14px;color:var(--tx2)">No API key — tap ⚙️ to add it.</p></div>`;return;}
   sec.innerHTML=`<p style="font-size:13px;color:var(--tx3);text-align:center;padding:12px 0">Generating ${name}'s report…</p>`;
   shareSec.style.display="none";
+  const lvl=CAMBRIDGE_LEVELS.find(l=>l.id===u.level)||CAMBRIDGE_LEVELS[0];
+  const myUnits=LEVEL_UNITS[u.level]||LEVEL_UNITS.starters;
+  const allUnits=UNITS.filter(u2=>myUnits.includes(u2.id));
   const completed=Object.keys(p.completed||{}).length;
   const avgScore=completed>0?Math.round(Object.values(p.completed).reduce((a,l)=>a+l.score,0)/completed/5*100):0;
-  const weakLabels=(p.weakAreas||[]).map(w=>LESSONS.find(l=>l.concept===w)?.title||w);
-  const strongLabel=p.strongConcept?LESSONS.find(l=>l.concept===p.strongConcept)?.title||p.strongConcept:"—";
+  const weakLabels=(p.weakAreas||[]).slice(0,3);
+  const strongLabel=p.strongConcept||"—";
   const weekLog=log.filter(l=>l.date>=daysAgo(7));
-  const prompt=`You are an AI English learning coach writing a weekly progress report for the parent of a beginner English learner.
+  const cs=p.conceptScores||{};
+  const vocabSummary=allUnits.map(u2=>`${u2.title}: ${cs[u2.title]||0}%`).join(", ");
+
+  const prompt=`You are an AI English learning coach aligned to the Cambridge Young Learners English (YLE) syllabus. Write a weekly progress report for the parent or teacher of a beginner English learner.
 
 Student profile:
 - Name: ${name}
-- Grade: ${u.grade||1}
-- Home language: ${langName}
-- English level: Absolute beginner
-- App: EngStart — picture-based English vocabulary learning
-
-Learning data:
-- Lessons completed: ${completed} of ${LESSONS.length}
+- Cambridge level: ${lvl.label} (${lvl.desc})
+- Units completed: ${completed} of ${allUnits.length}
 - Average quiz score: ${avgScore}%
 - Total learning time: ${p.totalMinutes||0} minutes
-- This week: ${weekLog.length} lessons, ${weekLog.reduce((a,l)=>a+(l.tokens||0),0)} stars earned
 - Current streak: ${p.streak||0} days
+- This week: ${weekLog.length} sessions
 - Topics needing practice: ${weakLabels.join(", ")||"none yet"}
 - Strongest topic: ${strongLabel}
+- Vocabulary mastery by topic: ${vocabSummary}
 - Recent sessions: ${JSON.stringify(log.slice(-6))}
 
-Write a warm, specific, practical parent report with EXACTLY these headers:
-PROGRESS:
+Write a warm, practical report with EXACTLY these Cambridge-aligned headers:
+CAMBRIDGE PROGRESS:
 VOCABULARY GAPS:
-WINS:
-HOME ACTIVITIES:
+WINS THIS WEEK:
+HOME PRACTICE IDEAS:
 
 Rules:
-- Write directly to the parent, use ${name}'s name throughout
-- Plain, warm, encouraging language — not formal or clinical
-- Remember this child is learning English as a complete beginner — be sensitive to the challenge
-- VOCABULARY GAPS: explain what words/topics need more exposure and suggest simple ways to practise AT HOME in daily life
-- WINS: celebrate specific achievements — even small ones matter hugely for beginner confidence
-- HOME ACTIVITIES: exactly 3 practical, fun, zero-cost activities the parent can do at home this week to reinforce what ${name} is learning (these must be playful, not like homework)
-- Each section 2–3 sentences max
-- Warm, encouraging, culturally sensitive tone`;
+- Write directly to the parent/teacher, use ${name}'s name throughout
+- CAMBRIDGE PROGRESS: reference the specific Cambridge ${lvl.label} level and what skills it covers; note what ${name} has achieved against the syllabus
+- VOCABULARY GAPS: name specific topics, explain what kinds of errors are appearing, connect to Cambridge exam expectations
+- WINS THIS WEEK: celebrate specific, real achievements from the data — even small ones
+- HOME PRACTICE IDEAS: exactly 3 simple, fun, Cambridge-appropriate activities. These must NOT feel like homework — they should be games, routines, or conversations. Reference specific vocabulary topics from the lessons.
+- 2–3 sentences per section
+- Warm, professional, encouraging tone
+- Use British English spelling (colour, practise, recognise)`;
 
   let full="";
-  const SCOLS={PROGRESS:{bg:"var(--sky-bg)",bd:"var(--sky-bd)",tx:"var(--sky-tx)",md:"var(--sky-md)"},"VOCABULARY GAPS":{bg:"var(--rose-bg)",bd:"var(--rose-bd)",tx:"var(--rose-tx)",md:"var(--rose-md)"},WINS:{bg:"var(--leaf-bg)",bd:"var(--leaf-bd)",tx:"var(--leaf-tx)",md:"var(--leaf-md)"},"HOME ACTIVITIES":{bg:"var(--plum-bg)",bd:"var(--plum-bd)",tx:"var(--plum-tx)",md:"var(--plum-md)"}};
+  const SCOLS={"CAMBRIDGE PROGRESS":{bg:"var(--sky-bg)",bd:"var(--sky-bd)",tx:"var(--sky-tx)",md:"var(--sky-md)"},"VOCABULARY GAPS":{bg:"var(--rose-bg)",bd:"var(--rose-bd)",tx:"var(--rose-tx)",md:"var(--rose-md)"},"WINS THIS WEEK":{bg:"var(--green-bg)",bd:"var(--green-bd)",tx:"var(--green-tx)",md:"var(--green-md)"},"HOME PRACTICE IDEAS":{bg:"var(--plum-bg)",bd:"var(--plum-bd)",tx:"var(--plum-tx)",md:"var(--plum-md)"}};
   const buildHTML=text=>{
     const parsed={};
-    ["PROGRESS","VOCABULARY GAPS","WINS","HOME ACTIVITIES"].forEach(k=>{const rx=new RegExp(`${k}:\\s*([\\s\\S]*?)(?=PROGRESS:|VOCABULARY GAPS:|WINS:|HOME ACTIVITIES:|$)`,"i");const m=text.match(rx);if(m)parsed[k]=m[1].trim();});
+    ["CAMBRIDGE PROGRESS","VOCABULARY GAPS","WINS THIS WEEK","HOME PRACTICE IDEAS"].forEach(k=>{const rx=new RegExp(`${k}:\\s*([\\s\\S]*?)(?=CAMBRIDGE PROGRESS:|VOCABULARY GAPS:|WINS THIS WEEK:|HOME PRACTICE IDEAS:|$)`,"i");const m=text.match(rx);if(m)parsed[k]=m[1].trim();});
     return Object.entries(SCOLS).map(([k,c])=>parsed[k]?`<div style="border-radius:14px;overflow:hidden;margin-bottom:10px;border:0.5px solid ${c.bd}"><div style="padding:9px 14px 7px;border-bottom:0.5px solid ${c.bd};background:${c.bg}"><p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:${c.md};margin:0">${k}</p></div><div style="padding:12px 14px;background:${c.bg};font-size:13px;color:${c.tx};line-height:1.65;white-space:pre-line">${parsed[k]}</div></div>`:""
     ).join("");
   };
   try{
-    const res=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"Content-Type":"application/json","x-api-key":key,"anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true"},body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:700,stream:true,messages:[{role:"user",content:prompt}]})});
+    const res=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"Content-Type":"application/json","x-api-key":key,"anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true"},body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:800,stream:true,messages:[{role:"user",content:prompt}]})});
     const reader=res.body.getReader(),dec=new TextDecoder();
     while(true){const{done,value}=await reader.read();if(done)break;for(const line of dec.decode(value).split("\n").filter(l=>l.startsWith("data:"))){try{const j=JSON.parse(line.slice(5));if(j.delta?.text){full+=j.delta.text;sec.innerHTML=buildHTML(full);}}catch{}}}
-  }catch{sec.innerHTML=`<div class="card"><p style="font-size:14px;color:var(--tx2)">Report unavailable — check connection.</p></div>`;return;}
+  }catch{sec.innerHTML=`<div class="card"><p style="font-size:14px;color:var(--tx2)">Report unavailable — check connection and API key.</p></div>`;return;}
   S.reportText=full;
-  showShareOptions(full,u,name);
+  showShareOptions(full,u,name,lvl);
 }
 
-/* ══════════ SHARE ══════════ */
-function buildPlainReport(html,name,u){
-  const langName=LANGS.find(l=>l.code===u?.lang)?.name||"";
-  let text=`📊 EngStart Weekly English Progress Report\n`;
-  text+=`Student: ${name} · Grade ${u?.grade||1} · Home language: ${langName}\n`;
-  text+=`Generated: ${new Date().toLocaleDateString("en-CA",{weekday:"long",year:"numeric",month:"long",day:"numeric"})}\n\n`;
-  ["PROGRESS","VOCABULARY GAPS","WINS","HOME ACTIVITIES"].forEach(k=>{
-    const rx=new RegExp(`${k}:\\s*([\\s\\S]*?)(?=PROGRESS:|VOCABULARY GAPS:|WINS:|HOME ACTIVITIES:|$)`,"i");
+/* ══ SHARE ══ */
+function buildPlainReport(html,name,u,lvl){
+  let text=`📊 EngStart Cambridge English Progress Report\n`;
+  text+=`Student: ${name} · Level: Cambridge ${lvl?.label||""}\n`;
+  text+=`Generated: ${new Date().toLocaleDateString("en-GB",{weekday:"long",year:"numeric",month:"long",day:"numeric"})}\n\n`;
+  ["CAMBRIDGE PROGRESS","VOCABULARY GAPS","WINS THIS WEEK","HOME PRACTICE IDEAS"].forEach(k=>{
+    const rx=new RegExp(`${k}:\\s*([\\s\\S]*?)(?=CAMBRIDGE PROGRESS:|VOCABULARY GAPS:|WINS THIS WEEK:|HOME PRACTICE IDEAS:|$)`,"i");
     const m=html.match(rx);if(m&&m[1].trim())text+=`${k}\n${m[1].trim()}\n\n`;
   });
-  text+=`— Sent from EngStart English Learning App`;
+  text+=`— Sent from EngStart Cambridge English Learning App`;
   return text;
 }
 
-function showShareOptions(reportText,u,name){
+function showShareOptions(reportText,u,name,lvl){
   const sec=document.getElementById("share-section");sec.style.display="block";
-  const plainText=buildPlainReport(reportText,name,u);
+  const plainText=buildPlainReport(reportText,name,u,lvl);
   const hasEmail=u.email&&u.email.includes("@");
   sec.innerHTML=`
     <div style="background:var(--bg2);border-radius:14px;padding:16px;border:0.5px solid var(--bd);margin-top:4px">
       <p style="font-size:13px;font-weight:700;color:var(--tx);margin-bottom:4px">📤 Share ${name}'s report</p>
-      <p style="font-size:12px;color:var(--tx2);margin-bottom:14px;line-height:1.5">Send to family, teacher, or save for your records.</p>
-      <button class="share-btn" id="email-send-btn" onclick="sendEmail('${u.email||""}','${name}','${u.parentName||""}','${u.grade||1}','${LANGS.find(l=>l.code===u.lang)?.name||""}',decodeURIComponent('${encodeURIComponent(plainText)}'))">
+      <p style="font-size:12px;color:var(--tx2);margin-bottom:14px;line-height:1.5">Send to parents, teacher, or save for records.</p>
+      <button class="share-btn" id="email-send-btn" onclick="sendEmail('${u.email||""}','${name}','${u.parentName||""}','${lvl?.label||""}',decodeURIComponent('${encodeURIComponent(plainText)}'))">
         <div class="share-icon" style="background:var(--sky-bg)">📧</div>
         <div><p style="font-size:14px;font-weight:600;margin:0 0 2px">Send by email</p><p style="font-size:12px;color:var(--tx2);margin:0">${hasEmail?"To: "+u.email:"⚠️ Add email in ⚙️ Settings first"}</p></div>
       </button>
       <button class="share-btn" onclick="shareWhatsApp(decodeURIComponent('${encodeURIComponent(plainText)}'))">
-        <div class="share-icon" style="background:var(--leaf-bg)">💬</div>
-        <div><p style="font-size:14px;font-weight:600;margin:0 0 2px">Share on WhatsApp</p><p style="font-size:12px;color:var(--tx2);margin:0">Send to family or school</p></div>
+        <div class="share-icon" style="background:var(--green-bg)">💬</div>
+        <div><p style="font-size:14px;font-weight:600;margin:0 0 2px">Share on WhatsApp</p><p style="font-size:12px;color:var(--tx2);margin:0">Send to parent or teacher</p></div>
       </button>
       <button class="share-btn" onclick="shareNative(decodeURIComponent('${encodeURIComponent(plainText)}'),'EngStart Report — ${name}')">
         <div class="share-icon" style="background:var(--plum-bg)">📱</div>
         <div><p style="font-size:14px;font-weight:600;margin:0 0 2px">Share via phone</p><p style="font-size:12px;color:var(--tx2);margin:0">Messages, Notes, AirDrop & more</p></div>
       </button>
       <button class="share-btn" onclick="copyReport(decodeURIComponent('${encodeURIComponent(plainText)}'))">
-        <div class="share-icon" style="background:var(--sun-bg)">📋</div>
+        <div class="share-icon" style="background:var(--gold-bg)">📋</div>
         <div><p style="font-size:14px;font-weight:600;margin:0 0 2px" id="copy-label">Copy to clipboard</p><p style="font-size:12px;color:var(--tx2);margin:0">Paste anywhere</p></div>
       </button>
-      ${!hasEmail?`<div style="background:var(--sun-bg);border:0.5px solid var(--sun-bd);border-radius:10px;padding:11px 13px;margin-top:4px"><p style="font-size:12px;color:var(--sun-tx);line-height:1.5">💡 Add a parent email in ⚙️ Settings to enable one-tap email.</p></div>`:""}
+      ${!hasEmail?`<div style="background:var(--gold-bg);border:0.5px solid var(--gold-bd);border-radius:10px;padding:11px 13px;margin-top:4px"><p style="font-size:12px;color:var(--gold-tx);line-height:1.5">💡 Add a parent email in ⚙️ Settings to enable one-tap email sending.</p></div>`:""}
     </div>`;
 }
 
-async function sendEmail(toEmail,studentName,parentName,grade,lang,reportText){
-  if(!toEmail||!toEmail.includes("@")){alert("No email saved. Go to ⚙️ Settings and add a parent email.");return;}
+async function sendEmail(toEmail,studentName,parentName,level,reportText){
+  if(!toEmail||!toEmail.includes("@")){alert("No email saved. Go to ⚙️ Settings and add one.");return;}
   const btn=document.getElementById("email-send-btn");
   if(btn){btn.textContent="Sending…";btn.disabled=true;}
   try{
     emailjs.init(EJS.publicKey);
-    await emailjs.send(EJS.serviceId,EJS.templateId,{to_email:toEmail,parent_name:parentName||"Parent",student_name:studentName,grade:"Grade "+grade,province:lang+" speaker",report_text:reportText});
-    if(btn){btn.textContent="✅ Email sent!";btn.style.background="var(--leaf)";}
+    await emailjs.send(EJS.serviceId,EJS.templateId,{to_email:toEmail,parent_name:parentName||"Parent",student_name:studentName,grade:"Cambridge "+level,province:"English learner",report_text:reportText});
+    if(btn){btn.textContent="✅ Email sent!";btn.style.background="var(--green)";}
     setTimeout(()=>{if(btn){btn.textContent="📧 Send by email";btn.disabled=false;btn.style.background="";}},3000);
   }catch(err){
     if(btn){btn.textContent="❌ Failed — tap to retry";btn.disabled=false;}
-    alert("Email failed. Check your EmailJS keys.");
+    alert("Email failed. Check your EmailJS setup.");
   }
 }
 function shareWhatsApp(text){window.open(`https://wa.me/?text=${encodeURIComponent(text)}`,"_blank");}
 function shareNative(text,title){
   if(navigator.share)navigator.share({title,text}).catch(()=>{});
-  else navigator.clipboard.writeText(text).then(()=>alert("Copied!")).catch(()=>alert("Use Copy option instead."));
+  else navigator.clipboard.writeText(text).then(()=>alert("Copied!")).catch(()=>alert("Use Copy option."));
 }
 function copyReport(text){
-  navigator.clipboard.writeText(text).then(()=>{const l=document.getElementById("copy-label");if(l){l.textContent="✅ Copied!";setTimeout(()=>{l.textContent="Copy to clipboard";},2500);}}).catch(()=>alert("Could not copy. Try Share via phone."));
+  navigator.clipboard.writeText(text).then(()=>{const l=document.getElementById("copy-label");if(l){l.textContent="✅ Copied!";setTimeout(()=>{l.textContent="Copy to clipboard";},2500);}}).catch(()=>alert("Try Share via phone."));
 }
 
-/* ══════════ BOOT ══════════ */
+/* ══ BOOT ══ */
 go("s-welcome");
 if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});
 </script>
