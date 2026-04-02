@@ -1,12 +1,12 @@
 {
-  "name": "EngStart English Learning",
+  "name": "EngStart Cambridge English",
   "short_name": "EngStart",
-  "description": "Beginner English vocabulary learning for children — picture-based, multilingual support.",
+  "description": "Cambridge-aligned English learning for beginner students — Pre-A1 Starters to A2 Flyers.",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#F0F9FF",
-  "theme_color": "#0EA5E9",
+  "theme_color": "#0369A1",
   "icons": [
     { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
     { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
