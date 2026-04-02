@@ -1,4 +1,4 @@
-const CACHE = "engstart-v1";
+const CACHE = "engstart-cambridge-v1";
 const ASSETS = ["/", "/index.html", "/manifest.json", "/icon-192.png", "/icon-512.png"];
 
 self.addEventListener("install", e => {
